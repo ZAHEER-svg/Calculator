@@ -6,8 +6,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 public class MainActivity extends Activity {
+
+    private BottomSheetBehavior bottomSheetBehavior;
+
 
     Button one;
     Button two;
@@ -45,6 +51,7 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LinearLayout linearLayout = findViewById(R.id.design_bottom_sheet);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         data = (EditText)findViewById(R.id.editText1);
@@ -143,14 +150,14 @@ public class MainActivity extends Activity {
                 data.append("0");
             }});
 
-        plus.setOnClickListener(new OnClickListener(){
 
+        plus.setOnClickListener(new OnClickListener(){
 
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 lastButton = (String) plus.getText();
                 value1 = Float.valueOf(data.getText().toString());
-                data.setText("");
+                data.append("");
             }});
 
         minus.setOnClickListener(new OnClickListener(){
@@ -216,4 +223,5 @@ public class MainActivity extends Activity {
                 }
             }});
     }
+
 }
