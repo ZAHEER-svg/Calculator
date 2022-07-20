@@ -47,13 +47,20 @@ public class MainActivity extends Activity {
     float value2;
 
     String lastButton;
-    /** Called when the activity is first created. */
+
+    /**
+     * Called when the activity is first created.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LinearLayout linearLayout = findViewById(R.id.design_bottom_sheet);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        LinearLayout linearLayout = findViewById(R.id.design_bottom_sheet);
+        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+
+
+
         data = (EditText)findViewById(R.id.editText1);
         one = (Button)findViewById(R.id.button9);
         two = (Button)findViewById(R.id.button8);
