@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
+import org.mariuszgromada.math.mxparser.Expression;
+
 public class MainActivity extends Activity {
 
     private EditText display_expression;
@@ -31,6 +33,7 @@ public class MainActivity extends Activity {
     Button minus;
     Button divide;
     Button multiply;
+    Button dot;
     Button equal;
     Button reset;
     EditText data;
@@ -71,13 +74,25 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                clearText("");
+                backSpace();
             }
         });
+
+        plus = findViewById(R.id.plus);
+        plus.setOnClickListener(new DisplayValue());
+
+        minus = findViewById(R.id.minus);
+        minus.setOnClickListener(new DisplayValue());
+
+        divide = findViewById(R.id.divide_btn);
+        divide.setOnClickListener(new DisplayValue());
+
+        multiply = findViewById(R.id.multiply);
+        multiply.setOnClickListener(new DisplayValue());
+
+        dot = findViewById(R.id.dot_btn);
+        dot.setOnClickListener(new DisplayValue());
     }
-
-
-
 
     public void disableKeyBoardSystem (){
         display_expression.setShowSoftInputOnFocus(false);
@@ -97,14 +112,32 @@ public class MainActivity extends Activity {
 
     public void updateText(String value){
         Editable oldStr = display_expression.getText();
+        int cursorPos = display_expression.getSelectionStart();
+        oldStr.insert(cursorPos, value);
 
-        display_expression.setText(oldStr + value);
+        display_expression.setText(oldStr);
+        display_expression.setSelection(cursorPos + 1);
     }
 
     public void clearText(String value){
         display_expression.setText("");
     }
 
+    public void backSpace(){
+        Editable str = display_expression.getText();
+        int cursorPos = display_expression.getSelectionStart();
+        if(cursorPos != 0) str.delete(cursorPos -1, cursorPos);
+    }
+
+
+    public void calculateExpression(){
+        String expression_string = display_expression.getText().toString();
+
+        Expression expression = new Expression(expression_string);
+        String result = String.valueOf(expression.calculate());
+
+        display_expression.setText(result);
+    }
 
     class DisplayValue implements View.OnClickListener{
 

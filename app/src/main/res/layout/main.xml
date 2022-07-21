@@ -43,7 +43,7 @@
 
         <Button
             android:id="@+id/reset"
-            android:layout_width="70dp"
+            android:layout_width="67dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons"
             android:backgroundTintMode="src_over"
@@ -52,7 +52,7 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/minus"
+            android:id="@+id/button_unknown"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons"
@@ -61,7 +61,7 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button22"
+            android:id="@+id/percentage_btn"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons"
@@ -71,7 +71,7 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/divide_btn"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons2"
@@ -125,15 +125,15 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button13"
+            android:id="@+id/multiply"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons"
             android:backgroundTint="#FFA500"
             android:gravity="center"
-            android:text="*"
+            android:text="@string/multiply"
             android:textColor="@color/white"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -178,13 +178,13 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button12"
+            android:id="@+id/minus"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons"
             android:backgroundTint="#FFA500"
             android:gravity="center"
-            android:text="-"
+            android:text="@string/minus"
             android:textColor="@color/white"
             android:textSize="30sp" />
     </LinearLayout>
@@ -230,13 +230,13 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/plus"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons"
             android:backgroundTint="#FFA500"
             android:gravity="center"
-            android:text="+"
+            android:text="@string/plus"
             android:textColor="@color/white"
             android:textSize="30sp" />
     </LinearLayout>
@@ -264,23 +264,23 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/buttonss"
+            android:id="@+id/dot_btn"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons1"
             android:gravity="center"
-            android:text="."
+            android:text="@string/dot_btn"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button15"
+            android:id="@+id/equals"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/buttons"
             android:backgroundTint="#FFA500"
             android:gravity="center"
-            android:text="="
+            android:text="@string/equals"
             android:textColor="@color/white"
             android:textSize="30sp" />
     </LinearLayout>

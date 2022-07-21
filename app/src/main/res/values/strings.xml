@@ -17,4 +17,5 @@
     <string name="equals">=</string>
     <string name="AC">AC</string>
     <string name="display_hint">0</string>
+    <string name="dot_btn">.</string>
 </resources>
