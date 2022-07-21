@@ -4,14 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
-
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.mariuszgromada.math.mxparser.Expression;
 
@@ -19,26 +15,27 @@ public class MainActivity extends Activity {
 
     private EditText display_expression;
 
-    Button one;
-    Button two;
-    Button three;
-    Button four;
-    Button five;
-    Button six;
-    Button seven;
-    Button eight;
-    Button nine;
-    Button zero;
-    Button plus;
-    Button minus;
-    Button divide;
-    Button multiply;
-    Button dot;
-    Button equal;
-    Button reset;
-    EditText data;
 
     public void addListenerToButtons(){
+        Button one;
+        Button two;
+        Button three;
+        Button four;
+        Button five;
+        Button six;
+        Button seven;
+        Button eight;
+        Button nine;
+        Button zero;
+        Button plus;
+        Button minus;
+        Button divide;
+        Button multiply;
+        Button dot;
+        Button equal;
+        Button reset;
+
+
         zero = findViewById(R.id.zero_btn);
         zero.setOnClickListener(new DisplayValue());
 
@@ -70,13 +67,7 @@ public class MainActivity extends Activity {
         nine.setOnClickListener(new DisplayValue());
 
         reset = findViewById(R.id.reset);
-        reset.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                backSpace();
-            }
-        });
+        reset.setOnClickListener(v -> backSpace());
 
         plus = findViewById(R.id.plus);
         plus.setOnClickListener(new DisplayValue());
@@ -92,6 +83,9 @@ public class MainActivity extends Activity {
 
         dot = findViewById(R.id.dot_btn);
         dot.setOnClickListener(new DisplayValue());
+
+        equal = findViewById(R.id.equals);
+        equal.setOnClickListener(v -> calculateExpression());
     }
 
     public void disableKeyBoardSystem (){
@@ -119,7 +113,7 @@ public class MainActivity extends Activity {
         display_expression.setSelection(cursorPos + 1);
     }
 
-    public void clearText(String value){
+    public void clearText(){
         display_expression.setText("");
     }
 
@@ -132,11 +126,11 @@ public class MainActivity extends Activity {
 
     public void calculateExpression(){
         String expression_string = display_expression.getText().toString();
-
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
 
         display_expression.setText(result);
+        display_expression.setSelection(display_expression.getText().length());
     }
 
     class DisplayValue implements View.OnClickListener{
