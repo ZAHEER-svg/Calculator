@@ -2,18 +2,20 @@ package com.example.calculator;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import androidx.annotation.Nullable;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 public class MainActivity extends Activity {
 
-    private BottomSheetBehavior bottomSheetBehavior;
-
+    private EditText display_expression;
 
     Button one;
     Button two;
@@ -24,7 +26,7 @@ public class MainActivity extends Activity {
     Button seven;
     Button eight;
     Button nine;
-    Button ten;
+    Button zero;
     Button plus;
     Button minus;
     Button divide;
@@ -33,202 +35,84 @@ public class MainActivity extends Activity {
     Button reset;
     EditText data;
 
-    float data1;
-    float data2;
-    float data3;
-    float data4;
-    float data5;
-    float data6;
-    float data7;
-    float data8;
-    float data9;
-    float data0;
-    float value1;
-    float value2;
+    public void addListenerToButtons(){
+        zero = findViewById(R.id.zero_btn);
+        zero.setOnClickListener(new DisplayValue());
 
-    String lastButton;
+        one = findViewById(R.id.one_btn);
+        one.setOnClickListener(new DisplayValue());
 
-    /**
-     * Called when the activity is first created.
-     */
+        two = findViewById(R.id.two_btn);
+        two.setOnClickListener(new DisplayValue());
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        LinearLayout linearLayout = findViewById(R.id.design_bottom_sheet);
-        bottomSheetBehavior = BottomSheetBehavior.from(linearLayout);
+        three = findViewById(R.id.three_btn);
+        three.setOnClickListener(new DisplayValue());
 
+        four = findViewById(R.id.four_btn);
+        four.setOnClickListener(new DisplayValue());
 
+        five = findViewById(R.id.five_btn);
+        five.setOnClickListener(new DisplayValue());
 
-        data = (EditText)findViewById(R.id.editText1);
-        one = (Button)findViewById(R.id.button9);
-        two = (Button)findViewById(R.id.button8);
-        three = (Button)findViewById(R.id.button7);
-        four = (Button)findViewById(R.id.button6);
-        five = (Button)findViewById(R.id.button5);
-        six = (Button)findViewById(R.id.button4);
-        seven = (Button)findViewById(R.id.button3);
-        eight = (Button)findViewById(R.id.button2);
-        nine = (Button)findViewById(R.id.button1);
-        ten = (Button)findViewById(R.id.button10);
-        plus = (Button)findViewById(R.id.button11);
-        minus = (Button)findViewById(R.id.button12);
-        divide = (Button)findViewById(R.id.button14);
-        multiply = (Button)findViewById(R.id.button13);
-        equal = (Button)findViewById(R.id.button15);
+        six = findViewById(R.id.six_btn);
+        six.setOnClickListener(new DisplayValue());
+
+        seven = findViewById(R.id.seven_btn);
+        seven.setOnClickListener(new DisplayValue());
+
+        eight = findViewById(R.id.eight_btn);
+        eight.setOnClickListener(new DisplayValue());
+
+        nine = findViewById(R.id.nine_btn);
+        nine.setOnClickListener(new DisplayValue());
+
         reset = findViewById(R.id.reset);
+        reset.setOnClickListener(new View.OnClickListener(){
 
-        one.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("1");
-            }});
-
-        two.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("2");
-            }});
-
-        three.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("3");
-            }});
-
-        four.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("4");
-            }});
-
-        five.setOnClickListener(new OnClickListener(){
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("5");
-            }});
-
-        six.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("6");
-            }});
-
-        seven.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("7");
-            }});
-
-        eight.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("8");
-            }});
-
-        nine.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("9");
-            }});
-
-        ten.setOnClickListener(new OnClickListener(){
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                data.append("0");
-            }});
-
-
-        plus.setOnClickListener(new OnClickListener(){
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                lastButton = (String) plus.getText();
-                value1 = Float.valueOf(data.getText().toString());
-                data.append("");
-            }});
-
-        minus.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                lastButton = (String) minus.getText();
-                value1 = Float.valueOf(data.getText().toString());
-                data.setText("");
-            }});
-
-        divide.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                lastButton = (String) divide.getText();
-                value1 = Float.valueOf(data.getText().toString());
-                data.setText("");
-            }});
-
-        multiply.setOnClickListener(new OnClickListener(){
-
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                lastButton = (String) multiply.getText();
-                value1 = Float.valueOf(data.getText().toString());
-                data.setText("");
-            }});
-
-        reset.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                data.setText("");
+                clearText("");
             }
         });
-
-        equal.setOnClickListener(new OnClickListener(){
-
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-
-                value2 = Float.valueOf(data.getText().toString());
-                float info;
-
-                if(lastButton.equals("+")){
-                    info = value1+value2;
-                    data.setText(String.valueOf(info));
-                }
-                if(lastButton.equals("-")){
-                    info = value1-value2;
-                    data.setText(String.valueOf(info));
-                }
-                if(lastButton.equals("*")){
-                    info = value1*value2;
-                    data.setText(String.valueOf(info));
-                }
-                if(lastButton.equals("/")){
-                    info = value1/value2;
-                    data.setText(String.valueOf(info));
-                }
-            }});
     }
 
+
+
+
+    public void disableKeyBoardSystem (){
+        display_expression.setShowSoftInputOnFocus(false);
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        addListenerToButtons();
+
+        display_expression = (EditText) findViewById(R.id.display_expressions);
+        disableKeyBoardSystem();
+    }
+
+
+    public void updateText(String value){
+        Editable oldStr = display_expression.getText();
+
+        display_expression.setText(oldStr + value);
+    }
+
+    public void clearText(String value){
+        display_expression.setText("");
+    }
+
+
+    class DisplayValue implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Button button_view = (Button) v;
+            updateText((String) button_view.getText());
+        }
+    }
 }
+

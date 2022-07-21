@@ -16,4 +16,5 @@
     <string name="multiply">*</string>
     <string name="equals">=</string>
     <string name="AC">AC</string>
+    <string name="display_hint">0</string>
 </resources>
