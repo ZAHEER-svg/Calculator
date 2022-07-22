@@ -17,6 +17,16 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:paddingVertical="2dp"
+            android:paddingRight="30dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/purple_500" />
+
         <EditText
             android:id="@+id/display_expressions"
             android:layout_width="match_parent"

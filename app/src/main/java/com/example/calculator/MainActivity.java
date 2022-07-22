@@ -3,17 +3,21 @@ package com.example.calculator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import org.mariuszgromada.math.mxparser.Expression;
+import org.w3c.dom.Text;
 
 public class MainActivity extends Activity {
 
     private EditText display_expression;
+    private TextView history;
 
 
     public void addListenerToButtons(){
@@ -70,16 +74,16 @@ public class MainActivity extends Activity {
         reset.setOnClickListener(v -> backSpace());
 
         plus = findViewById(R.id.plus);
-        plus.setOnClickListener(new DisplayValue());
+        plus.setOnClickListener(new AppendHistory());
 
         minus = findViewById(R.id.minus);
-        minus.setOnClickListener(new DisplayValue());
+        minus.setOnClickListener(new AppendHistory());
 
         divide = findViewById(R.id.divide_btn);
-        divide.setOnClickListener(new DisplayValue());
+        divide.setOnClickListener(new AppendHistory());
 
         multiply = findViewById(R.id.multiply);
-        multiply.setOnClickListener(new DisplayValue());
+        multiply.setOnClickListener(new AppendHistory());
 
         dot = findViewById(R.id.dot_btn);
         dot.setOnClickListener(new DisplayValue());
@@ -99,6 +103,7 @@ public class MainActivity extends Activity {
 
         addListenerToButtons();
 
+        history = (TextView) findViewById(R.id.history);
         display_expression = (EditText) findViewById(R.id.display_expressions);
         disableKeyBoardSystem();
     }
@@ -113,8 +118,22 @@ public class MainActivity extends Activity {
         display_expression.setSelection(cursorPos + 1);
     }
 
+    public void updateHistory(String operator){
+        String history_text = (String) history.getText();
+        Editable display_text = display_expression.getText();
+
+        String newStr = String.format("%s%s%s", history_text, display_text,operator);
+
+        history.setText(newStr);
+        clearText();
+    }
+
     public void clearText(){
         display_expression.setText("");
+    }
+
+    public void clearHistory(){
+        history.setText("");
     }
 
     public void backSpace(){
@@ -123,11 +142,37 @@ public class MainActivity extends Activity {
         if(cursorPos != 0) str.delete(cursorPos -1, cursorPos);
     }
 
+    public String backSpaceHistoryText(){
+        String history_expression = (String) history.getText();
+        history_expression = history_expression.substring(0, history_expression.length() - 1);
+
+        return  history_expression;
+    }
+
+    public String returnFinalExpression(){
+        String history_expression = (String) history.getText();
+        String display_expression_text = display_expression.getText().toString();
+
+        if(display_expression_text.matches("") && history_expression.matches("")){
+            return "0";
+        }
+        else if(display_expression_text.matches("")){
+            return backSpaceHistoryText();
+        }
+        else{
+            return history_expression + display_expression_text;
+        }
+
+    }
+
 
     public void calculateExpression(){
-        String expression_string = display_expression.getText().toString();
+        String expression_string = returnFinalExpression();
+
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
+
+        clearHistory();
 
         display_expression.setText(result);
         display_expression.setSelection(display_expression.getText().length());
@@ -139,6 +184,15 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             Button button_view = (Button) v;
             updateText((String) button_view.getText());
+        }
+    }
+
+    class AppendHistory implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Button button_view = (Button) v;
+            updateHistory((String) button_view.getText());
         }
     }
 }
