@@ -72,6 +72,14 @@ public class MainActivity extends Activity {
 
         reset = findViewById(R.id.reset);
         reset.setOnClickListener(v -> backSpace());
+        reset.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                clearText();
+                clearHistory();
+                return true;
+            }
+        });
 
         plus = findViewById(R.id.plus);
         plus.setOnClickListener(new AppendHistory());
