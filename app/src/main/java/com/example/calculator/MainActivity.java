@@ -38,6 +38,8 @@ public class MainActivity extends Activity {
         Button dot;
         Button equal;
         Button reset;
+        Button caret;
+        Button percentage_btn;
 
 
         zero = findViewById(R.id.zero_btn);
@@ -98,6 +100,13 @@ public class MainActivity extends Activity {
 
         equal = findViewById(R.id.equals);
         equal.setOnClickListener(v -> calculateExpression());
+
+        caret = findViewById(R.id.caret);
+        caret.setOnClickListener(new AppendHistory());
+
+        percentage_btn = findViewById(R.id.percentage_btn);
+        percentage_btn.setOnClickListener(v -> calculatePercentage());
+
     }
 
     public void disableKeyBoardSystem (){
@@ -117,6 +126,13 @@ public class MainActivity extends Activity {
         history = (TextView) findViewById(R.id.history);
         display_expression = (EditText) findViewById(R.id.display_expressions);
         disableKeyBoardSystem();
+    }
+
+    public void calculatePercentage(){
+        String display_text =  display_expression.getText().toString();
+        Expression expression = new Expression(display_text + "%");
+        String result = String.valueOf(expression.calculate());
+        display_expression.setText(result);
     }
 
 
