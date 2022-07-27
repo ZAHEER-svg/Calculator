@@ -104,6 +104,9 @@ public class MainActivity extends Activity {
         display_expression.setShowSoftInputOnFocus(false);
     }
 
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

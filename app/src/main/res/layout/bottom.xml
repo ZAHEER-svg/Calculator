@@ -23,6 +23,7 @@
             android:layout_height="500dp"
             android:orientation="vertical"
             android:padding="16dp">
+
             <View
                 android:layout_width="30dp"
                 android:layout_height="5dp"
@@ -31,10 +32,7 @@
                 android:background="#FFA500"/>
 
 
-
-
-
-</LinearLayout>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>
