@@ -2,7 +2,8 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -40,12 +41,14 @@
                 android:importantForAutofill="no"
                 android:inputType="number|text"
                 android:paddingEnd="30dp"
+                android:paddingStart="30dp"
                 android:shadowColor="@color/teal_200"
                 android:textAlignment="textEnd"
                 android:textColor="@color/purple_500"
                 android:textColorHighlight="#FFA500"
                 android:textColorLink="#FFA500"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                app:autoSizeTextType="uniform" />
         </LinearLayout>
 
         <LinearLayout
