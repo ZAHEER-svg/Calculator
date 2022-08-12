@@ -14,15 +14,25 @@ import android.widget.Button;
 public class BasicCalculatorButtonsFragment extends Fragment {
 
     public interface Listener{
-        void displayValue();
-
         void updateText(String text);
+
+        void backSpace();
+
+        void clearText();
+
+        void clearHistory();
+
+        void updateHistory(String text);
+
+        void calculatePercentage();
+
+        void calculateExpression();
     }
 
     private Listener listener;
 
 
-    public void addListenerToButtons(){
+    public void addListenerToButtons(View view){
         Button one;
         Button two;
         Button three;
@@ -43,80 +53,80 @@ public class BasicCalculatorButtonsFragment extends Fragment {
         Button caret;
         Button percentage_btn;
 
-        View view = getView();
-
         zero = view.findViewById(R.id.zero_btn);
         zero.setOnClickListener(new DisplayValue());
 
-//        one = view.findViewById(R.id.one_btn);
-//        one.setOnClickListener(new MainActivity.DisplayValue());
-//
-//        two = view.findViewById(R.id.two_btn);
-//        two.setOnClickListener();
-//
-//        three = view.findViewById(R.id.three_btn);
-//        three.setOnClickListener();
-//
-//        four = view.findViewById(R.id.four_btn);
-//        four.setOnClickListener();
-//
-//        five = view.findViewById(R.id.five_btn);
-//        five.setOnClickListener();
-//
-//        six = view.findViewById(R.id.six_btn);
-//        six.setOnClickListener();
-//
-//        seven = view.findViewById(R.id.seven_btn);
-//        seven.setOnClickListener();
-//
-//        eight = view.findViewById(R.id.eight_btn);
-//        eight.setOnClickListener();
-//
-//        nine = view.findViewById(R.id.nine_btn);
-//        nine.setOnClickListener(new MainActivity.DisplayValue());
+        one = view.findViewById(R.id.one_btn);
+        one.setOnClickListener(new DisplayValue());
 
-//        reset = view.findViewById(R.id.reset);
-//        reset.setOnClickListener(v -> backSpace());
-//        reset.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//                clearText();
-//                clearHistory();
-//                return true;
-//            }
-//        });
-//
-//        plus = view.findViewById(R.id.plus);
-//        plus.setOnClickListener(new MainActivity.AppendHistory());
-//
-//        minus = view.findViewById(R.id.minus);
-//        minus.setOnClickListener(new MainActivity.AppendHistory());
-//
-//        divide = view.findViewById(R.id.divide_btn);
-//        divide.setOnClickListener(new MainActivity.AppendHistory());
-//
-//        multiply = findViewById(R.id.multiply);
-//        multiply.setOnClickListener(new MainActivity.AppendHistory());
-//
-//        dot = view.findViewById(R.id.dot_btn);
-//        dot.setOnClickListener(new MainActivity.DisplayValue());
-//
-//        equal = view.findViewById(R.id.equals);
-//        equal.setOnClickListener(v -> calculateExpression());
-//
-//        caret = view.findViewById(R.id.caret);
-//        caret.setOnClickListener(new MainActivity.AppendHistory());
-//
-//        percentage_btn = view.findViewById(R.id.percentage_btn);
-//        percentage_btn.setOnClickListener(v -> calculatePercentage());
+        two = view.findViewById(R.id.two_btn);
+        two.setOnClickListener(new DisplayValue());
+
+        three = view.findViewById(R.id.three_btn);
+        three.setOnClickListener(new DisplayValue());
+
+        four = view.findViewById(R.id.four_btn);
+        four.setOnClickListener(new DisplayValue());
+
+        five = view.findViewById(R.id.five_btn);
+        five.setOnClickListener(new DisplayValue());
+
+        six = view.findViewById(R.id.six_btn);
+        six.setOnClickListener(new DisplayValue());
+
+        seven = view.findViewById(R.id.seven_btn);
+        seven.setOnClickListener(new DisplayValue());
+
+        eight = view.findViewById(R.id.eight_btn);
+        eight.setOnClickListener(new DisplayValue());
+
+        nine = view.findViewById(R.id.nine_btn);
+        nine.setOnClickListener(new DisplayValue());
+
+        reset = view.findViewById(R.id.reset);
+        reset.setOnClickListener(v -> listener.backSpace());
+        reset.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                listener.clearText();
+                listener.clearHistory();
+                return true;
+            }
+        });
+
+        plus = view.findViewById(R.id.plus);
+        plus.setOnClickListener(new AppendHistory());
+
+        minus = view.findViewById(R.id.minus);
+        minus.setOnClickListener(new AppendHistory());
+
+        divide = view.findViewById(R.id.divide_btn);
+        divide.setOnClickListener(new AppendHistory());
+
+        multiply = view.findViewById(R.id.multiply);
+        multiply.setOnClickListener(new AppendHistory());
+
+        dot = view.findViewById(R.id.dot_btn);
+        dot.setOnClickListener(new AppendHistory());
+
+        equal = view.findViewById(R.id.equals);
+        equal.setOnClickListener(v -> listener.calculateExpression());
+
+        caret = view.findViewById(R.id.caret);
+        caret.setOnClickListener(new AppendHistory());
+
+        percentage_btn = view.findViewById(R.id.percentage_btn);
+        percentage_btn.setOnClickListener(v -> listener.calculatePercentage());
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_basic_calculator_buttons, container, false);
+        View view = inflater.inflate(R.layout.fragment_basic_calculator_buttons, container, false);
+        addListenerToButtons(view);
+
+        return view;
     }
 
     @Override
@@ -132,6 +142,15 @@ public class BasicCalculatorButtonsFragment extends Fragment {
         public void onClick(View v) {
             Button button_view = (Button) v;
             listener.updateText((String) button_view.getText());
+        }
+    }
+
+    private class AppendHistory implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Button button_view = (Button) v;
+            listener.updateHistory((String) button_view.getText());
         }
     }
 }

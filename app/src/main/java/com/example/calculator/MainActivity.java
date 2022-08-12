@@ -10,118 +10,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.mariuszgromada.math.mxparser.Expression;
 import org.w3c.dom.Text;
 
-public class MainActivity extends Activity implements  BasicCalculatorButtonsFragment.Listener {
+public class MainActivity extends AppCompatActivity implements  BasicCalculatorButtonsFragment.Listener {
 
     private EditText display_expression;
     private TextView history;
 
 
-    public void addListenerToButtons(){
-        Button one;
-        Button two;
-        Button three;
-        Button four;
-        Button five;
-        Button six;
-        Button seven;
-        Button eight;
-        Button nine;
-        Button zero;
-        Button plus;
-        Button minus;
-        Button divide;
-        Button multiply;
-        Button dot;
-        Button equal;
-        Button reset;
-        Button caret;
-        Button percentage_btn;
-
-
-        zero = findViewById(R.id.zero_btn);
-        zero.setOnClickListener(new DisplayValue());
-
-        one = findViewById(R.id.one_btn);
-        one.setOnClickListener(new DisplayValue());
-
-        two = findViewById(R.id.two_btn);
-        two.setOnClickListener(new DisplayValue());
-
-        three = findViewById(R.id.three_btn);
-        three.setOnClickListener(new DisplayValue());
-
-        four = findViewById(R.id.four_btn);
-        four.setOnClickListener(new DisplayValue());
-
-        five = findViewById(R.id.five_btn);
-        five.setOnClickListener(new DisplayValue());
-
-        six = findViewById(R.id.six_btn);
-        six.setOnClickListener(new DisplayValue());
-
-        seven = findViewById(R.id.seven_btn);
-        seven.setOnClickListener(new DisplayValue());
-
-        eight = findViewById(R.id.eight_btn);
-        eight.setOnClickListener(new DisplayValue());
-
-        nine = findViewById(R.id.nine_btn);
-        nine.setOnClickListener(new DisplayValue());
-
-        reset = findViewById(R.id.reset);
-        reset.setOnClickListener(v -> backSpace());
-        reset.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                clearText();
-                clearHistory();
-                return true;
-            }
-        });
-
-        plus = findViewById(R.id.plus);
-        plus.setOnClickListener(new AppendHistory());
-
-        minus = findViewById(R.id.minus);
-        minus.setOnClickListener(new AppendHistory());
-
-        divide = findViewById(R.id.divide_btn);
-        divide.setOnClickListener(new AppendHistory());
-
-        multiply = findViewById(R.id.multiply);
-        multiply.setOnClickListener(new AppendHistory());
-
-        dot = findViewById(R.id.dot_btn);
-        dot.setOnClickListener(new DisplayValue());
-
-        equal = findViewById(R.id.equals);
-        equal.setOnClickListener(v -> calculateExpression());
-
-        caret = findViewById(R.id.caret);
-        caret.setOnClickListener(new AppendHistory());
-
-        percentage_btn = findViewById(R.id.percentage_btn);
-        percentage_btn.setOnClickListener(v -> calculatePercentage());
-
-    }
 
     public void disableKeyBoardSystem (){
         display_expression.setShowSoftInputOnFocus(false);
     }
 
 
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-        addListenerToButtons();
 
         history = (TextView) findViewById(R.id.history);
         display_expression = (EditText) findViewById(R.id.display_expressions);
@@ -203,29 +112,6 @@ public class MainActivity extends Activity implements  BasicCalculatorButtonsFra
 
         display_expression.setText(result);
         display_expression.setSelection(display_expression.getText().length());
-    }
-
-    @Override
-    public void displayValue() {
-
-    }
-
-    class DisplayValue implements View.OnClickListener{
-
-        @Override
-        public void onClick(View v) {
-            Button button_view = (Button) v;
-            updateText((String) button_view.getText());
-        }
-    }
-
-    class AppendHistory implements View.OnClickListener{
-
-        @Override
-        public void onClick(View v) {
-            Button button_view = (Button) v;
-            updateHistory((String) button_view.getText());
-        }
     }
 }
 
