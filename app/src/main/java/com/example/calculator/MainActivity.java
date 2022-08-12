@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements  BasicCalculatorB
 
     private EditText display_expression;
     private TextView history;
-
+    private final String BAD_EXPRESSION_MSG = "Bad Expression";
 
 
     public void disableKeyBoardSystem (){
@@ -47,6 +47,13 @@ public class MainActivity extends AppCompatActivity implements  BasicCalculatorB
 
     public void updateText(String value){
         Editable oldStr = display_expression.getText();
+
+        if(oldStr.toString().contains(BAD_EXPRESSION_MSG)){
+            oldStr.clear();
+        };
+
+        Log.i("expression",   oldStr.toString());
+
         int cursorPos = display_expression.getSelectionStart();
         oldStr.insert(cursorPos, value);
 
@@ -107,6 +114,8 @@ public class MainActivity extends AppCompatActivity implements  BasicCalculatorB
 
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
+
+        if(result.equals("NaN")) result = BAD_EXPRESSION_MSG;
 
         clearHistory();
 
