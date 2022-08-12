@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import org.mariuszgromada.math.mxparser.Expression;
 import org.w3c.dom.Text;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements  BasicCalculatorButtonsFragment.Listener {
 
     private EditText display_expression;
     private TextView history;
@@ -203,6 +203,11 @@ public class MainActivity extends Activity {
 
         display_expression.setText(result);
         display_expression.setSelection(display_expression.getText().length());
+    }
+
+    @Override
+    public void displayValue() {
+
     }
 
     class DisplayValue implements View.OnClickListener{
