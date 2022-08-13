@@ -18,6 +18,10 @@
     <string name="AC">AC</string>
     <string name="display_hint">0</string>
     <string name="dot_btn">.</string>
+    <string name="sin_btn_text">sin</string>
+    <string name="cos_btn_text">cos</string>
+    <string name="tan_btn_text">tan</string>
+    <string name="log_btn_text">log</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
