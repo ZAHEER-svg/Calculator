@@ -15,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.mariuszgromada.math.mxparser.Expression;
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity implements  BasicCalculatorButtonsFragment.Listener {
+public class MainActivity extends AppCompatActivity
+        implements  BasicCalculatorButtonsFragment.Listener, ScientificCalculatorFragment.Listener {
 
     private EditText display_expression;
     private TextView history;
@@ -52,13 +53,11 @@ public class MainActivity extends AppCompatActivity implements  BasicCalculatorB
             oldStr.clear();
         };
 
-        Log.i("expression",   oldStr.toString());
-
         int cursorPos = display_expression.getSelectionStart();
         oldStr.insert(cursorPos, value);
 
         display_expression.setText(oldStr);
-        display_expression.setSelection(cursorPos + 1);
+        display_expression.setSelection(cursorPos + value.length());
     }
 
     public void updateHistory(String operator){
@@ -70,6 +69,15 @@ public class MainActivity extends AppCompatActivity implements  BasicCalculatorB
         history.setText(newStr);
         clearText();
     }
+
+    public void updateHistoryWithFunction(String type){
+        String history_text = (String) history.getText();
+        Editable display_text = display_expression.getText();
+
+        history.setText(String.format("%s(%s)", type, display_text));
+    }
+
+
 
     public void clearText(){
         display_expression.setText("");
@@ -99,9 +107,9 @@ public class MainActivity extends AppCompatActivity implements  BasicCalculatorB
         if(display_expression_text.matches("") && history_expression.matches("")){
             return "0";
         }
-        else if(display_expression_text.matches("")){
-            return backSpaceHistoryText();
-        }
+//        else if(display_expression_text.matches("")){
+//            return backSpaceHistoryText();
+//        }
         else{
             return history_expression + display_expression_text;
         }
@@ -109,8 +117,7 @@ public class MainActivity extends AppCompatActivity implements  BasicCalculatorB
     }
 
 
-    public void calculateExpression(){
-        String expression_string = returnFinalExpression();
+    public void calculateExpression(String expression_string){
 
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());

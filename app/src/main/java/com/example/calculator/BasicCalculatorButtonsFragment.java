@@ -26,7 +26,9 @@ public class BasicCalculatorButtonsFragment extends Fragment {
 
         void calculatePercentage();
 
-        void calculateExpression();
+        void calculateExpression(String expression_string);
+
+        String returnFinalExpression();
     }
 
     private Listener listener;
@@ -110,7 +112,13 @@ public class BasicCalculatorButtonsFragment extends Fragment {
         dot.setOnClickListener(new AppendHistory());
 
         equal = view.findViewById(R.id.equals);
-        equal.setOnClickListener(v -> listener.calculateExpression());
+        equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                listener.calculateExpression(listener.returnFinalExpression());
+            }
+        });
 
         caret = view.findViewById(R.id.caret);
         caret.setOnClickListener(new AppendHistory());

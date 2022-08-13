@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
@@ -57,9 +59,16 @@
             android:layout_weight="2"
             tools:layout="@layout/fragment_basic_calculator_buttons" />
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/scientific_calculator_button"
+            android:name="com.example.calculator.ScientificCalculatorFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            tools:layout="@layout/fragment_scientific_calculator"/>
+
 
     </LinearLayout>
-
-
-    <include layout="@layout/bottom" />
+    </androidx.core.widget.NestedScrollView>
+<!--    <include layout="@layout/bottom" />-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
