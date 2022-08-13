@@ -22,6 +22,7 @@
     <string name="cos_btn_text">cos</string>
     <string name="tan_btn_text">tan</string>
     <string name="log_btn_text">log</string>
+    <string name="pie_btn_text">&#960;</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
