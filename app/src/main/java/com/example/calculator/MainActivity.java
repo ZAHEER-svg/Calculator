@@ -18,6 +18,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity
         implements  BasicCalculatorButtonsFragment.Listener, ScientificCalculatorFragment.Listener {
 
+
     private EditText display_expression;
     private TextView history;
     private final String BAD_EXPRESSION_MSG = "Bad Expression";
@@ -33,8 +34,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        history = (TextView) findViewById(R.id.history);
-        display_expression = (EditText) findViewById(R.id.display_expressions);
+        history = findViewById(R.id.history);
+        display_expression = findViewById(R.id.display_expressions);
         disableKeyBoardSystem();
     }
 
@@ -70,14 +71,21 @@ public class MainActivity extends AppCompatActivity
         clearText();
     }
 
+    public void calculatePower(String power, String base){
+        String expression_string = String.format("%s^%s", base, power);
+        calculateToHistory(expression_string);
+    }
+
+    public String getDisplayExpression() {
+        return display_expression.getText().toString();
+    }
+
     public void updateHistoryWithFunction(String type){
         String history_text = (String) history.getText();
         Editable display_text = display_expression.getText();
 
         history.setText(String.format("%s(%s)", type, display_text));
     }
-
-
 
     public void clearText(){
         display_expression.setText("");
@@ -100,6 +108,16 @@ public class MainActivity extends AppCompatActivity
         return  history_expression;
     }
 
+    public void calculateInverse(String denominator){
+        String expression_string = String.format("1 / %s", denominator);
+        calculateToHistory(expression_string);
+    }
+
+    public void calculatePermutation(String value){
+        String expression_string = String.format("%s!", value);
+        calculateToHistory(expression_string);
+    }
+
     public String returnFinalExpression(){
         String history_expression = (String) history.getText();
         String display_expression_text = display_expression.getText().toString();
@@ -118,7 +136,6 @@ public class MainActivity extends AppCompatActivity
 
 
     public void calculateExpression(String expression_string){
-
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
 
@@ -128,6 +145,17 @@ public class MainActivity extends AppCompatActivity
 
         display_expression.setText(result);
         display_expression.setSelection(display_expression.getText().length());
+    }
+
+    public void calculateToHistory(String expression_string){
+        Expression expression = new Expression(expression_string);
+        String result = String.valueOf(expression.calculate());
+
+        if(result.equals("NaN")) result = BAD_EXPRESSION_MSG;
+
+        clearText();
+
+        updateHistory(result);
     }
 }
 

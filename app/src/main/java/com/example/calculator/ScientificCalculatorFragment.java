@@ -15,15 +15,110 @@ public class ScientificCalculatorFragment extends Fragment {
 
     public interface Listener{
         void updateHistoryWithFunction(String type);
+        void updateHistory(String operator);
+        void calculatePower(String power, String base);
+        String getDisplayExpression();
+        void calculateInverse(String denominator);
+        void calculatePermutation(String value);
     }
 
     private Listener listener;
 
     private Button sinBtn;
+    private Button cosBtn;
+    private Button tanBtn;
+    private Button sinHBtn;
+    private Button tanHBtn;
+    private Button cosHBtn;
+    private Button piBtn;
+    private Button logBtn;
+    private Button squareBtn;
+    private Button cubeBtn;
+    private Button exponentialToPowerBtn;
+    private Button tenToPowerBtn;
+    private Button inverseOfOneBtn;
+    private Button squareRootBtn;
+    private Button cubeRootBtn;
+    private Button nthRootBtn;
+    private Button permutationBtn;
+    private Button exponentialConstBtn;
+    private Button randConstBtn;
+    private Button twoToPowerBtn;
 
-    public void addListenersToButton(View view){
+
+
+    public void addListenersToButton(@NonNull View view){
         sinBtn = view.findViewById(R.id.sin_btn);
         sinBtn.setOnClickListener(new MathFunctionClicked());
+
+        cosBtn = view.findViewById(R.id.cos_btn);
+        cosBtn.setOnClickListener(new MathFunctionClicked());
+
+
+        tanBtn = view.findViewById(R.id.tan_btn);
+        tanBtn.setOnClickListener(new MathFunctionClicked());
+
+
+        cosHBtn = view.findViewById(R.id.cosh_btn);
+        cosHBtn.setOnClickListener(null);
+
+
+        sinHBtn = view.findViewById(R.id.cosh_btn);
+        sinHBtn.setOnClickListener(null);
+
+        tanHBtn = view.findViewById(R.id.tanh_btn);
+        tanHBtn.setOnClickListener(null);
+
+
+        piBtn = view.findViewById(R.id.pi_btn);
+        piBtn.setOnClickListener(v -> listener.updateHistory("pi"));
+
+
+        logBtn = view.findViewById(R.id.log_btn);
+        logBtn.setOnClickListener(new MathFunctionClicked());
+
+
+        squareBtn = view.findViewById(R.id.square_btn);
+        squareBtn.setOnClickListener(v -> listener.calculatePower("2", listener.getDisplayExpression()));
+
+        cubeBtn = view.findViewById(R.id.cube_btn);
+        cubeBtn.setOnClickListener(v -> listener.calculatePower("3", listener.getDisplayExpression()));
+
+        exponentialToPowerBtn = view.findViewById(R.id.exponential_to_power_btn);
+        exponentialToPowerBtn.setOnClickListener(v -> listener.calculatePower(listener.getDisplayExpression(), "e"));
+
+
+        tenToPowerBtn = view.findViewById(R.id.ten_to_power_btn);
+        tenToPowerBtn.setOnClickListener(v -> listener.calculatePower(listener.getDisplayExpression(), "10"));
+
+
+        inverseOfOneBtn = view.findViewById(R.id.inverse_of_one_btn);
+        inverseOfOneBtn.setOnClickListener(v -> listener.calculateInverse(listener.getDisplayExpression()));
+
+
+        squareRootBtn = view.findViewById(R.id.square_root_btn);
+        squareRootBtn.setOnClickListener(null);
+
+
+        cubeRootBtn = view.findViewById(R.id.cube_root_btn);
+        cubeRootBtn.setOnClickListener(null);
+
+
+        nthRootBtn = view.findViewById(R.id.nth_root_btn);
+        nthRootBtn.setOnClickListener(null);
+
+        permutationBtn = view.findViewById(R.id.permutation_btn);
+        permutationBtn.setOnClickListener(v -> listener.calculatePermutation(listener.getDisplayExpression()));
+
+
+        randConstBtn = view.findViewById(R.id.rand_num_btn);
+        randConstBtn.setOnClickListener(null);
+
+        exponentialConstBtn = view.findViewById(R.id.exponential_const_btn);
+        exponentialConstBtn.setOnClickListener(v -> listener.updateHistory("e"));
+
+        twoToPowerBtn = view.findViewById(R.id.two_to_power_btn);
+        twoToPowerBtn.setOnClickListener(v -> listener.calculatePower(listener.getDisplayExpression(), "2"));
     }
 
     @Override

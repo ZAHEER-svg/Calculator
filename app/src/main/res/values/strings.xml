@@ -38,5 +38,5 @@
     <string name="permutation_btn_text">x!</string>
     <string name="rand_num_btn_text">rand</string>
     <string name="two_to_power_btn_text">2<small><sup>x</sup></small></string>
-    <string name="exponential_const_btn_text">e<small><sup>x</sup></small> </string>
+    <string name="exponential_const_btn_text">e</string>
 </resources>
