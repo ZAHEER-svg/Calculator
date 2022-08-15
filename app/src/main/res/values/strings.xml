@@ -23,6 +23,20 @@
     <string name="tan_btn_text">tan</string>
     <string name="log_btn_text">log</string>
     <string name="pie_btn_text">&#960;</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sinh_btn_text">sinh</string>
+    <string name="cosh_btn_text">cosh</string>
+    <string name="tanh_btn_text">tanh</string>
+    <string name="square_btn_text">x <small><sup>2</sup> </small></string>
+    <string name="cube_btn_text">x <small><sup>3</sup> </small></string>
+    <string name="exponential_to_power_btn_text">e <small><sup>x</sup> </small></string>
+    <string name="ten_to_power_btn_text">10 <small><sup>x</sup></small></string>
+    <string name="inverse_of_one_btn_text">inv</string>
+    <string name="square_root_btn_text">sqrut</string>
+    <string name="cube_root_btn_text">cubrut</string>
+    <string name="nth_root_btn_text">nthrut</string>
+    <string name="permutation_btn_text">x!</string>
+    <string name="rand_num_btn_text">rand</string>
+    <string name="two_to_power_btn_text">2<small><sup>x</sup></small></string>
+    <string name="exponential_const_btn_text">e<small><sup>x</sup></small> </string>
 </resources>
