@@ -26,7 +26,7 @@ public class BasicCalculatorButtonsFragment extends Fragment {
 
         void calculatePercentage();
 
-        void calculateExpression(String expression_string);
+        void calculateToDisplay(String expression_string);
 
         String returnFinalExpression();
     }
@@ -116,7 +116,7 @@ public class BasicCalculatorButtonsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                listener.calculateExpression(listener.returnFinalExpression());
+                listener.calculateToDisplay(listener.returnFinalExpression());
             }
         });
 

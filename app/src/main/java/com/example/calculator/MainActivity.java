@@ -135,23 +135,27 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void calculateExpression(String expression_string){
+    public String calculateExpression(String expression_string){
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
 
         if(result.equals("NaN")) result = BAD_EXPRESSION_MSG;
 
-        clearHistory();
+        return result;
 
+
+    }
+
+    public void calculateToDisplay(String expression_string){
+        String result = calculateExpression(expression_string);
+
+        clearHistory();
         display_expression.setText(result);
         display_expression.setSelection(display_expression.getText().length());
     }
 
     public void calculateToHistory(String expression_string){
-        Expression expression = new Expression(expression_string);
-        String result = String.valueOf(expression.calculate());
-
-        if(result.equals("NaN")) result = BAD_EXPRESSION_MSG;
+        String result = calculateExpression(expression_string);
 
         clearText();
 
