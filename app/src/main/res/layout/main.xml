@@ -39,6 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/display_hint"
+                android:maxHeight="70dp"
+                android:paddingStart="30dp"
                 android:importantForAutofill="no"
                 android:inputType="number|text"
                 android:paddingEnd="30dp"
@@ -47,7 +49,9 @@
                 android:textColor="@color/purple_500"
                 android:textColorHighlight="#FFA500"
                 android:textColorLink="#FFA500"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeStepGranularity="20dp"/>
         </LinearLayout>
 
 
