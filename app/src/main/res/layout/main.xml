@@ -1,314 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:background="#000000"
-        android:baselineAligned="false"
-        android:orientation="vertical">
+    android:layout_height="match_parent">
 
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:background="#000000"
+            android:baselineAligned="false"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/history"
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="2dp"
-                android:paddingRight="30dp"
-                android:textAlignment="textEnd"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@color/purple_500"
-                android:textSize="20dp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/display_expressions"
+                <TextView
+                    android:id="@+id/history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="2dp"
+                    android:paddingRight="30dp"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/purple_500"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/display_expressions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/display_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="number|text"
+                    android:maxHeight="70dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:shadowColor="@color/teal_200"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/purple_500"
+                    android:textColorHighlight="#FFA500"
+                    android:textColorLink="#FFA500"
+                    android:textSize="70sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/calculator_basic_button"
+                android:name="com.example.calculator.BasicCalculatorButtonsFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/display_hint"
-                android:importantForAutofill="no"
-                android:inputType="number|text"
-                android:paddingEnd="30dp"
-                android:paddingStart="30dp"
-                android:shadowColor="@color/teal_200"
-                android:textAlignment="textEnd"
-                android:textColor="@color/purple_500"
-                android:textColorHighlight="#FFA500"
-                android:textColorLink="#FFA500"
-                android:textSize="70sp"
-                app:autoSizeTextType="uniform" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                tools:layout="@layout/fragment_basic_calculator_buttons" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:showDividers="middle"
-            android:divider="@drawable/tall_divider"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/reset"
-                android:layout_width="67dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons"
-                android:backgroundTintMode="src_over"
-                android:text="C"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/caret"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons"
-                android:text="^"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/percentage_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons"
-                android:gravity="center"
-                android:text="%"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/divide_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons2"
-                android:backgroundTint="#FFA500"
-                android:gravity="center"
-                android:text="/"
-                android:textColor="@android:color/background_light"
-                android:textSize="30sp" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:showDividers="middle"
-            android:divider="@drawable/tall_divider"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/seven_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/seven"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                tools:ignore="UsingOnClickInXml" />
-
-            <Button
-                android:id="@+id/eight_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/eight"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/nine_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/nine"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/multiply"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons"
-                android:backgroundTint="#FFA500"
-                android:gravity="center"
-                android:text="×"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:showDividers="middle"
-            android:divider="@drawable/tall_divider"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/four_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/four"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/five_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/five"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/six_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/six"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/minus"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons"
-                android:backgroundTint="#FFA500"
-                android:gravity="center"
-                android:text="@string/minus"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout6"
-            android:showDividers="middle"
-            android:divider="@drawable/tall_divider"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/one_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/one"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/two_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/two"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/three_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/three"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/plus"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons"
-                android:backgroundTint="#FFA500"
-                android:gravity="center"
-                android:text="@string/plus"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="50dp"
-            android:layout_weight="1"
-            android:divider="@drawable/tall_divider"
-            android:gravity="center"
-            android:showDividers="middle">
-
-
-            <Button
-                android:id="@+id/zero_btn"
-                android:layout_width="152dp"
-                android:layout_height="70dp"
-                android:background="@drawable/o"
-                android:gravity="fill"
-                android:paddingLeft="20dp"
-                android:text="@string/zero"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/dot_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons1"
-                android:gravity="center"
-                android:text="@string/dot_btn"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/equals"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/buttons"
-                android:backgroundTint="#FFA500"
-                android:gravity="center"
-                android:text="@string/equals"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 
     <include layout="@layout/bottom" />

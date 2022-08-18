@@ -10,110 +10,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.mariuszgromada.math.mxparser.Expression;
 import org.w3c.dom.Text;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity
+        implements  BasicCalculatorButtonsFragment.Listener, ScientificCalculatorFragment.Listener {
+
 
     private EditText display_expression;
     private TextView history;
+    private final String BAD_EXPRESSION_MSG = "Bad Expression";
 
-
-    public void addListenerToButtons(){
-        Button one;
-        Button two;
-        Button three;
-        Button four;
-        Button five;
-        Button six;
-        Button seven;
-        Button eight;
-        Button nine;
-        Button zero;
-        Button plus;
-        Button minus;
-        Button divide;
-        Button multiply;
-        Button dot;
-        Button equal;
-        Button reset;
-        Button caret;
-        Button percentage_btn;
-
-
-        zero = findViewById(R.id.zero_btn);
-        zero.setOnClickListener(new DisplayValue());
-
-        one = findViewById(R.id.one_btn);
-        one.setOnClickListener(new DisplayValue());
-
-        two = findViewById(R.id.two_btn);
-        two.setOnClickListener(new DisplayValue());
-
-        three = findViewById(R.id.three_btn);
-        three.setOnClickListener(new DisplayValue());
-
-        four = findViewById(R.id.four_btn);
-        four.setOnClickListener(new DisplayValue());
-
-        five = findViewById(R.id.five_btn);
-        five.setOnClickListener(new DisplayValue());
-
-        six = findViewById(R.id.six_btn);
-        six.setOnClickListener(new DisplayValue());
-
-        seven = findViewById(R.id.seven_btn);
-        seven.setOnClickListener(new DisplayValue());
-
-        eight = findViewById(R.id.eight_btn);
-        eight.setOnClickListener(new DisplayValue());
-
-        nine = findViewById(R.id.nine_btn);
-        nine.setOnClickListener(new DisplayValue());
-
-        reset = findViewById(R.id.reset);
-        reset.setOnClickListener(v -> backSpace());
-        reset.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                clearText();
-                clearHistory();
-                return true;
-            }
-        });
-
-        plus = findViewById(R.id.plus);
-        plus.setOnClickListener(new AppendHistory());
-
-        minus = findViewById(R.id.minus);
-        minus.setOnClickListener(new AppendHistory());
-
-        divide = findViewById(R.id.divide_btn);
-        divide.setOnClickListener(new AppendHistory());
-
-        multiply = findViewById(R.id.multiply);
-        multiply.setOnClickListener(new AppendHistory());
-
-        dot = findViewById(R.id.dot_btn);
-        dot.setOnClickListener(new DisplayValue());
-
-        equal = findViewById(R.id.equals);
-        equal.setOnClickListener(v -> calculateExpression());
-
-        caret = findViewById(R.id.caret);
-        caret.setOnClickListener(new AppendHistory());
-
-        percentage_btn = findViewById(R.id.percentage_btn);
-        percentage_btn.setOnClickListener(v -> calculatePercentage());
-
-    }
 
     public void disableKeyBoardSystem (){
         display_expression.setShowSoftInputOnFocus(false);
     }
-
-
 
 
     @Override
@@ -121,10 +34,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        addListenerToButtons();
-
-        history = (TextView) findViewById(R.id.history);
-        display_expression = (EditText) findViewById(R.id.display_expressions);
+        history = findViewById(R.id.history);
+        display_expression = findViewById(R.id.display_expressions);
         disableKeyBoardSystem();
     }
 
@@ -138,11 +49,16 @@ public class MainActivity extends Activity {
 
     public void updateText(String value){
         Editable oldStr = display_expression.getText();
+
+        if(oldStr.toString().contains(BAD_EXPRESSION_MSG)){
+            oldStr.clear();
+        };
+
         int cursorPos = display_expression.getSelectionStart();
         oldStr.insert(cursorPos, value);
 
         display_expression.setText(oldStr);
-        display_expression.setSelection(cursorPos + 1);
+        display_expression.setSelection(cursorPos + value.length());
     }
 
     public void updateHistory(String operator){
@@ -153,6 +69,22 @@ public class MainActivity extends Activity {
 
         history.setText(newStr);
         clearText();
+    }
+
+    public void calculatePower(String power, String base){
+        String expression_string = String.format("%s^%s", base, power);
+        calculateToHistory(expression_string);
+    }
+
+    public String getDisplayExpression() {
+        return display_expression.getText().toString();
+    }
+
+    public void updateHistoryWithFunction(String type){
+        String history_text = (String) history.getText();
+        Editable display_text = display_expression.getText();
+
+        history.setText(String.format("%s(%s)", type, display_text));
     }
 
     public void clearText(){
@@ -176,6 +108,16 @@ public class MainActivity extends Activity {
         return  history_expression;
     }
 
+    public void calculateInverse(String denominator){
+        String expression_string = String.format("1 / %s", denominator);
+        calculateToHistory(expression_string);
+    }
+
+    public void calculatePermutation(String value){
+        String expression_string = String.format("%s!", value);
+        calculateToHistory(expression_string);
+    }
+
     public String returnFinalExpression(){
         String history_expression = (String) history.getText();
         String display_expression_text = display_expression.getText().toString();
@@ -183,9 +125,9 @@ public class MainActivity extends Activity {
         if(display_expression_text.matches("") && history_expression.matches("")){
             return "0";
         }
-        else if(display_expression_text.matches("")){
-            return backSpaceHistoryText();
-        }
+//        else if(display_expression_text.matches("")){
+//            return backSpaceHistoryText();
+//        }
         else{
             return history_expression + display_expression_text;
         }
@@ -193,34 +135,31 @@ public class MainActivity extends Activity {
     }
 
 
-    public void calculateExpression(){
-        String expression_string = returnFinalExpression();
-
+    public String calculateExpression(String expression_string){
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
 
-        clearHistory();
+        if(result.equals("NaN")) result = BAD_EXPRESSION_MSG;
 
+        return result;
+
+
+    }
+
+    public void calculateToDisplay(String expression_string){
+        String result = calculateExpression(expression_string);
+
+        clearHistory();
         display_expression.setText(result);
         display_expression.setSelection(display_expression.getText().length());
     }
 
-    class DisplayValue implements View.OnClickListener{
+    public void calculateToHistory(String expression_string){
+        String result = calculateExpression(expression_string);
 
-        @Override
-        public void onClick(View v) {
-            Button button_view = (Button) v;
-            updateText((String) button_view.getText());
-        }
-    }
+        clearText();
 
-    class AppendHistory implements View.OnClickListener{
-
-        @Override
-        public void onClick(View v) {
-            Button button_view = (Button) v;
-            updateHistory((String) button_view.getText());
-        }
+        updateHistory(result);
     }
 }
 
