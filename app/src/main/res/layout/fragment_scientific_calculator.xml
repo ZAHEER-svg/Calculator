@@ -45,25 +45,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/sinh_btn"
+            android:id="@+id/inverse_sin_btn"
             android:theme="@style/BorderLessButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sinh_btn_text" />
+            android:text="@string/inverse_sin_btn_text" />
 
         <Button
-            android:id="@+id/cosh_btn"
+            android:id="@+id/inverse_cos_btn"
             android:theme="@style/BorderLessButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cosh_btn_text" />
+            android:text="@string/inverse_cos_btn_text" />
 
         <Button
-            android:id="@+id/tanh_btn"
+            android:id="@+id/inverse_tan_btn_text"
             android:theme="@style/BorderLessButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tanh_btn_text" />
+            android:text="@string/inverse_tan_btn_text" />
 
         <Button
             android:id="@+id/pi_btn"

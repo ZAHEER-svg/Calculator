@@ -127,14 +127,13 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @Override
     public void getRandomNumber() {
         clearText();
         clearHistory();
 
-        int randNum = (int) Math.random();
+        double randNum =  Math.random();
 
-        display_expression.setText(randNum);
+        display_expression.setText(String.valueOf(randNum));
     }
 
 

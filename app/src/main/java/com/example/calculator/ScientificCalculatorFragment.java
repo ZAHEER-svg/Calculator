@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,9 @@ public class ScientificCalculatorFragment extends Fragment {
     private Button sinBtn;
     private Button cosBtn;
     private Button tanBtn;
-    private Button sinHBtn;
-    private Button tanHBtn;
-    private Button cosHBtn;
+    private Button invSinBtn;
+    private Button invCosBtn;
+    private Button invTanBtn;
     private Button piBtn;
     private Button logBtn;
     private Button squareBtn;
@@ -61,15 +62,15 @@ public class ScientificCalculatorFragment extends Fragment {
         tanBtn.setOnClickListener(new MathFunctionClicked());
 
 
-        cosHBtn = view.findViewById(R.id.cosh_btn);
-        cosHBtn.setOnClickListener(null);
+        invCosBtn = view.findViewById(R.id.inverse_cos_btn);
+        invCosBtn.setOnClickListener(null);
 
 
-        sinHBtn = view.findViewById(R.id.cosh_btn);
-        sinHBtn.setOnClickListener(null);
+        invSinBtn = view.findViewById(R.id.inverse_cos_btn);
+        invSinBtn.setOnClickListener(null);
 
-        tanHBtn = view.findViewById(R.id.tanh_btn);
-        tanHBtn.setOnClickListener(null);
+        invTanBtn = view.findViewById(R.id.inverse_tan_btn_text);
+        invTanBtn.setOnClickListener(null);
 
 
         piBtn = view.findViewById(R.id.pi_btn);
@@ -107,7 +108,7 @@ public class ScientificCalculatorFragment extends Fragment {
 
 
         nthRootBtn = view.findViewById(R.id.nth_root_btn);
-        nthRootBtn.setOnClickListener(null);
+        nthRootBtn.setOnClickListener(v -> listener.updateHistory("√"));
 
         permutationBtn = view.findViewById(R.id.permutation_btn);
         permutationBtn.setOnClickListener(v -> listener.calculatePermutation(listener.getDisplayExpression()));
@@ -136,7 +137,7 @@ public class ScientificCalculatorFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-
+        Log.i("isAttached", "true");
         listener = (Listener) context;
     }
 
