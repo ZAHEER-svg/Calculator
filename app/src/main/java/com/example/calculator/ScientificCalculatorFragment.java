@@ -20,6 +20,8 @@ public class ScientificCalculatorFragment extends Fragment {
         String getDisplayExpression();
         void calculateInverse(String denominator);
         void calculatePermutation(String value);
+        void getRandomNumber();
+        void calculateRoot(String nthRoot, String value);
     }
 
     private Listener listener;
@@ -97,11 +99,11 @@ public class ScientificCalculatorFragment extends Fragment {
 
 
         squareRootBtn = view.findViewById(R.id.square_root_btn);
-        squareRootBtn.setOnClickListener(null);
+        squareRootBtn.setOnClickListener(v -> listener.calculateRoot("2", listener.getDisplayExpression()));
 
 
         cubeRootBtn = view.findViewById(R.id.cube_root_btn);
-        cubeRootBtn.setOnClickListener(null);
+        cubeRootBtn.setOnClickListener(v -> listener.calculateRoot("3", listener.getDisplayExpression()));
 
 
         nthRootBtn = view.findViewById(R.id.nth_root_btn);
@@ -112,7 +114,7 @@ public class ScientificCalculatorFragment extends Fragment {
 
 
         randConstBtn = view.findViewById(R.id.rand_num_btn);
-        randConstBtn.setOnClickListener(null);
+        randConstBtn.setOnClickListener(v -> listener.getRandomNumber());
 
         exponentialConstBtn = view.findViewById(R.id.exponential_const_btn);
         exponentialConstBtn.setOnClickListener(v -> listener.updateHistory("e"));
