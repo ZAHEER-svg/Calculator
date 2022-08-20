@@ -1,265 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calculator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".BasicCalculatorButtonsFragment">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:showDividers="middle"
-        android:divider="@drawable/tall_divider"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons"
+        android:backgroundTintMode="src_over"
+        android:text="C"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/seven_btn"
+        app:layout_constraintEnd_toStartOf="@+id/caret"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/caret"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons"
+        android:text="^"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/eight_btn"
+        app:layout_constraintEnd_toStartOf="@+id/percentage_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/reset" />
+
+    <Button
+        android:id="@+id/percentage_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:text="%"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/nine_btn"
+        app:layout_constraintEnd_toStartOf="@+id/divide_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/caret" />
 
-        <Button
-            android:id="@+id/reset"
-            android:layout_width="67dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons"
-            android:backgroundTintMode="src_over"
-            android:text="C"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/caret"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons"
-            android:text="^"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/percentage_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons"
-            android:gravity="center"
-            android:text="%"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/divide_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons2"
-            android:backgroundTint="#FFA500"
-            android:gravity="center"
-            android:text="/"
-            android:textColor="@android:color/background_light"
-            android:textSize="30sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:showDividers="middle"
-        android:divider="@drawable/tall_divider"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+    <Button
+        android:id="@+id/divide_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons2"
+        android:backgroundTint="#FFA500"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:text="/"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/percentage_btn" />
 
-        <Button
-            android:id="@+id/seven_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/seven"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            tools:ignore="UsingOnClickInXml" />
-
-        <Button
-            android:id="@+id/eight_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/eight"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/nine_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/nine"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/multiply"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons"
-            android:backgroundTint="#FFA500"
-            android:gravity="center"
-            android:text="×"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:showDividers="middle"
-        android:divider="@drawable/tall_divider"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
+    <Button
+        android:id="@+id/seven_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:text="@string/seven"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/four_btn"
+        app:layout_constraintEnd_toStartOf="@+id/eight_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
-        <Button
-            android:id="@+id/four_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/four"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/five_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/five"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/six_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/six"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/minus"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons"
-            android:backgroundTint="#FFA500"
-            android:gravity="center"
-            android:text="@string/minus"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:showDividers="middle"
-        android:divider="@drawable/tall_divider"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/one_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/one"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/two_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/two"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/three_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/three"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/plus"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons"
-            android:backgroundTint="#FFA500"
-            android:gravity="center"
-            android:text="@string/plus"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:layout_weight="1"
-        android:divider="@drawable/tall_divider"
+    <Button
+        android:id="@+id/eight_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
         android:gravity="center"
-        android:showDividers="middle">
+        android:text="@string/eight"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/five_btn"
+        app:layout_constraintEnd_toStartOf="@+id/nine_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/seven_btn" />
+
+    <Button
+        android:id="@+id/nine_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/nine"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/six_btn"
+        app:layout_constraintEnd_toStartOf="@+id/multiply"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/eight_btn" />
+
+    <Button
+        android:id="@+id/multiply"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons"
+        android:backgroundTint="#FFA500"
+        android:gravity="center"
+        android:text="×"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/minus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/nine_btn" />
+
+    <Button
+        android:id="@+id/four_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/four"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/one_btn"
+        app:layout_constraintEnd_toStartOf="@+id/five_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/five_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/five"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/two_btn"
+        app:layout_constraintEnd_toStartOf="@+id/six_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/four_btn" />
+
+    <Button
+        android:id="@+id/six_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/six"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/three_btn"
+        app:layout_constraintEnd_toStartOf="@+id/minus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/five_btn" />
+
+    <Button
+        android:id="@+id/minus"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons"
+        android:backgroundTint="#FFA500"
+        android:gravity="center"
+        android:text="@string/minus"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/plus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/six_btn" />
+
+    <Button
+        android:id="@+id/one_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/one"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/zero_btn"
+        app:layout_constraintEnd_toStartOf="@+id/two_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/two_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/two"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/zero_btn"
+        app:layout_constraintEnd_toStartOf="@+id/three_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/one_btn" />
+
+    <Button
+        android:id="@+id/three_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/three"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/dot_btn"
+        app:layout_constraintEnd_toStartOf="@+id/plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/two_btn" />
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttons"
+        android:backgroundTint="#FFA500"
+        android:gravity="center"
+        android:text="@string/plus"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/equals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/three_btn" />
+
+    <Button
+        android:id="@+id/zero_btn"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/o"
+        android:gravity="fill"
+        android:paddingLeft="20dp"
+        android:text="@string/zero"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/one_btn" />
+
+    <Button
+        android:id="@+id/dot_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/buttons1"
+        android:gravity="center"
+        android:text="@string/dot_btn"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/equals"
+        app:layout_constraintStart_toEndOf="@+id/zero_btn" />
+
+    <Button
+        android:id="@+id/equals"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/buttons"
+        android:backgroundTint="#FFA500"
+        android:gravity="center"
+        android:text="@string/equals"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/plus" />
 
 
-        <Button
-            android:id="@+id/zero_btn"
-            android:layout_width="152dp"
-            android:layout_height="70dp"
-            android:background="@drawable/o"
-            android:gravity="fill"
-            android:paddingLeft="20dp"
-            android:text="@string/zero"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/dot_btn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons1"
-            android:gravity="center"
-            android:text="@string/dot_btn"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/equals"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/buttons"
-            android:backgroundTint="#FFA500"
-            android:gravity="center"
-            android:text="@string/equals"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,78 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:background="#000000"
-        android:baselineAligned="false"
-        android:orientation="vertical">
 
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:background="#000000"
+            android:baselineAligned="false"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/history"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="2dp"
-                android:paddingRight="30dp"
-                android:textAlignment="textEnd"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@color/purple_500"
-                android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/display_expressions"
+            <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/display_hint"
-                android:maxHeight="70dp"
-                android:paddingStart="30dp"
-                android:importantForAutofill="no"
-                android:inputType="number|text"
-                android:paddingEnd="30dp"
-                android:shadowColor="@color/teal_200"
-                android:textAlignment="textEnd"
-                android:textColor="@color/purple_500"
-                android:textColorHighlight="#FFA500"
-                android:textColorLink="#FFA500"
-                android:textSize="70sp"
-                android:autoSizeTextType="uniform"
-                android:autoSizeStepGranularity="20dp"/>
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="2dp"
+                    android:paddingRight="30dp"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/purple_500"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/display_expressions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/display_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="number|text"
+                    android:maxHeight="70dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:shadowColor="@color/teal_200"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/purple_500"
+                    android:textColorHighlight="#FFA500"
+                    android:textColorLink="#FFA500"
+                    android:textSize="70sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/calculator_basic_button"
+                android:name="com.example.calculator.BasicCalculatorButtonsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                tools:layout="@layout/fragment_basic_calculator_buttons" />
+
+
         </LinearLayout>
 
-
-        <androidx.fragment.app.FragmentContainerView
-            android:name="com.example.calculator.BasicCalculatorButtonsFragment"
-            android:id="@+id/calculator_basic_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            tools:layout="@layout/fragment_basic_calculator_buttons" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/scientific_calculator_button"
-            android:name="com.example.calculator.ScientificCalculatorFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            tools:layout="@layout/fragment_scientific_calculator"/>
-
-q
-    </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-<!--    <include layout="@layout/bottom" />-->
+    <include layout="@layout/bottom" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
