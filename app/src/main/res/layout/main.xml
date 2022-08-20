@@ -71,7 +71,7 @@
             android:layout_weight="2"
             tools:layout="@layout/fragment_scientific_calculator"/>
 
-
+q
     </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 <!--    <include layout="@layout/bottom" />-->
