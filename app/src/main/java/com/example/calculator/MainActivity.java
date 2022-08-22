@@ -83,9 +83,7 @@ public class MainActivity extends AppCompatActivity
 
 
     public void updateHistoryWithFunction(String type){
-        String history_text = (String) history.getText();
         Editable display_text = display_expression.getText();
-
         history.setText(String.format("%s(%s)", type, display_text));
     }
 
@@ -140,12 +138,13 @@ public class MainActivity extends AppCompatActivity
     public String returnFinalExpression(){
         String history_expression = ((String) history.getText())
                 .replace("log", "lg")
-                .replace(getString(R.string.inverse_cos_btn_text), "arcos")
-                .replace(getString(R.string.inverse_tan_btn_text), "artan")
-                .replace(getString(R.string.inverse_sin_btn_text), "arsin");
+                .replace(getString(R.string.inverse_cos_btn_text), "arccos")
+                .replace(getString(R.string.inverse_tan_btn_text), "arctan")
+                .replace(getString(R.string.inverse_sin_btn_text), "arcsin");
 
 
         String display_expression_text = display_expression.getText().toString();
+
 
         if(display_expression_text.matches("") && history_expression.matches("")){
             return "0";
@@ -166,6 +165,8 @@ public class MainActivity extends AppCompatActivity
     public String calculateExpression(String expression_string){
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
+
+        Log.i("final_expression", expression_string);
 
         if(result.equals("NaN")) result = BAD_EXPRESSION_MSG;
 

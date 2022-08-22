@@ -66,10 +66,10 @@ public class ScientificCalculatorFragment extends Fragment {
         invCosBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_cos_btn_text)));
 
 
-        invSinBtn = view.findViewById(R.id.inverse_cos_btn);
+        invSinBtn = view.findViewById(R.id.inverse_sin_btn);
         invSinBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_sin_btn_text)));
 
-        invTanBtn = view.findViewById(R.id.inverse_tan_btn_text);
+        invTanBtn = view.findViewById(R.id.inverse_tan_btn);
         invTanBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_tan_btn_text)));
 
 
