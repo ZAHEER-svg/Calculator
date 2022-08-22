@@ -139,7 +139,12 @@ public class MainActivity extends AppCompatActivity
 
     public String returnFinalExpression(){
         String history_expression = ((String) history.getText())
-                .replace("log", "lg");
+                .replace("log", "lg")
+                .replace(getString(R.string.inverse_cos_btn_text), "arcos")
+                .replace(getString(R.string.inverse_tan_btn_text), "artan")
+                .replace(getString(R.string.inverse_sin_btn_text), "arsin");
+
+
         String display_expression_text = display_expression.getText().toString();
 
         if(display_expression_text.matches("") && history_expression.matches("")){

@@ -63,14 +63,14 @@ public class ScientificCalculatorFragment extends Fragment {
 
 
         invCosBtn = view.findViewById(R.id.inverse_cos_btn);
-        invCosBtn.setOnClickListener(null);
+        invCosBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_cos_btn_text)));
 
 
         invSinBtn = view.findViewById(R.id.inverse_cos_btn);
-        invSinBtn.setOnClickListener(null);
+        invSinBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_sin_btn_text)));
 
         invTanBtn = view.findViewById(R.id.inverse_tan_btn_text);
-        invTanBtn.setOnClickListener(null);
+        invTanBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_tan_btn_text)));
 
 
         piBtn = view.findViewById(R.id.pi_btn);
@@ -137,7 +137,6 @@ public class ScientificCalculatorFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        Log.i("isAttached", "true");
         listener = (Listener) context;
     }
 
