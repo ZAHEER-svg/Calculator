@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity
     public void updateHistoryWithFunction(String type){
         Editable display_text = display_expression.getText();
         history.setText(String.format("%s(%s)", type, display_text));
+        clearText();
     }
 
 
