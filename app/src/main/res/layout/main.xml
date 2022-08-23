@@ -36,12 +36,11 @@
                     android:textColor="@color/purple_500"
                     android:textSize="20dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/display_expressions"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:hint="@string/display_hint"
-                    android:importantForAutofill="no"
                     android:inputType="number|text"
                     android:maxHeight="70dp"
                     android:paddingStart="30dp"
@@ -51,8 +50,8 @@
                     android:textColor="@color/purple_500"
                     android:textColorHighlight="#FFA500"
                     android:textColorLink="#FFA500"
-                    android:textSize="70sp"
-                    app:autoSizeTextType="uniform" />
+                    android:textSize="45sp"
+                    android:scrollbars="horizontal"/>
             </LinearLayout>
 
 

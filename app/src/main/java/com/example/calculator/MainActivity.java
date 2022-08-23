@@ -2,11 +2,10 @@ package com.example.calculator;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +15,7 @@ import org.mariuszgromada.math.mxparser.Expression;
 public class MainActivity extends AppCompatActivity
         implements  BasicCalculatorButtonsFragment.Listener, ScientificCalculatorFragment.Listener {
 
-    private EditText display_expression;
+    private TextView display_expression;
     private TextView history;
     private final String BAD_EXPRESSION_MSG = "Bad Expression";
 
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity
 
         history = findViewById(R.id.history);
         display_expression = findViewById(R.id.display_expressions);
+//        display_expression.setMovementMethod(new ScrollingMovementMethod());
         disableKeyBoardSystem();
     }
 
@@ -46,23 +46,21 @@ public class MainActivity extends AppCompatActivity
 
 
     public void updateText(String value){
-        Editable oldStr = display_expression.getText();
+        Editable oldStr = (Editable) display_expression.getText();
 
         if(oldStr.toString().contains(BAD_EXPRESSION_MSG)){
             oldStr.clear();
-        };
+        }
 
-        int cursorPos = display_expression.getSelectionStart();
-        oldStr.insert(cursorPos, value);
+        oldStr.append(value);
 
         display_expression.setText(oldStr);
-        display_expression.setSelection(cursorPos + value.length());
     }
 
 
     public void updateHistory(String operator){
         String history_text = (String) history.getText();
-        Editable display_text = display_expression.getText();
+        Editable display_text = (Editable) display_expression.getText();
 
         String newStr = String.format("%s%s%s", history_text, display_text,operator);
 
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity
 
 
     public void updateHistoryWithFunction(String type){
-        Editable display_text = display_expression.getText();
+        Editable display_text = (Editable) display_expression.getText();
         history.setText(String.format("%s(%s)", type, display_text));
         clearText();
     }
@@ -99,10 +97,9 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void backSpace(){
-        Editable str = display_expression.getText();
-        int cursorPos = display_expression.getSelectionStart();
-        if(cursorPos != 0) str.delete(cursorPos -1, cursorPos);
+    public void backSpace() {
+        Editable str = (Editable) display_expression.getText();
+        if (str.length() != 0) display_expression.setText(str.subSequence(0, str.length() -1));
     }
 
 
@@ -151,7 +148,7 @@ public class MainActivity extends AppCompatActivity
             return "0";
         }
         else{
-            return history_expression.toString() + display_expression_text.toString();
+            return history_expression + display_expression_text;
         }
 
     }
@@ -180,7 +177,6 @@ public class MainActivity extends AppCompatActivity
 
         clearHistory();
         display_expression.setText(result);
-        display_expression.setSelection(display_expression.getText().length());
     }
 
 
