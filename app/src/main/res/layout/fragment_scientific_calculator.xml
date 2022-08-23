@@ -18,18 +18,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.084">
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".ScientificCalculatorFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/sin_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sin_btn_text"
+
             android:theme="@style/BorderLessButton"
             app:layout_constraintEnd_toStartOf="@+id/cos_btn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            android:theme="@style/BorderLessButton" />
+
 
         <Button
             android:id="@+id/cos_btn"
@@ -41,17 +53,21 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/sin_btn"
             app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/tan_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tan_btn_text"
+
             android:theme="@style/BorderLessButton"
             app:layout_constraintEnd_toStartOf="@+id/log_btn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/cos_btn"
             app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            android:theme="@style/BorderLessButton" />
+
 
         <Button
             android:id="@+id/log_btn"
@@ -102,7 +118,34 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/inverse_cos_btn"
             app:layout_constraintTop_toBottomOf="@+id/tan_btn" />
+            android:text="@string/log_btn_text"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/sinh_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sinh_btn_text"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/cosh_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cosh_btn_text"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/tanh_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanh_btn_text"
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/pi_btn"
@@ -116,7 +159,13 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/inverse_tan_btn"
             app:layout_constraintTop_toBottomOf="@+id/log_btn" />
+            android:text="@string/pie_btn_text"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/square_btn"
             android:layout_width="wrap_content"
@@ -129,6 +178,8 @@
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/inverse_sin_btn" />
+            android:text="@string/square_btn_text"
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/cube_btn"
@@ -141,6 +192,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/square_btn"
             app:layout_constraintTop_toBottomOf="@+id/inverse_cos_btn" />
+            android:text="@string/cube_btn_text"
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/exponential_to_power_btn"
@@ -153,6 +206,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/cube_btn"
             app:layout_constraintTop_toBottomOf="@+id/inverse_tan_btn" />
+            android:text="@string/exponential_to_power_btn_text"
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/ten_to_power_btn"
@@ -166,8 +221,13 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/exponential_to_power_btn"
             app:layout_constraintTop_toBottomOf="@+id/pi_btn" />
+            android:text="@string/ten_to_power_btn_text"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/inverse_of_one_btn"
             android:layout_width="wrap_content"
@@ -181,6 +241,9 @@
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/square_btn" />
 
+            android:text="@string/inverse_of_one_btn_text"
+            android:theme="@style/BorderLessButton" />
+
         <Button
             android:id="@+id/square_root_btn"
             android:layout_width="wrap_content"
@@ -192,6 +255,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/inverse_of_one_btn"
             app:layout_constraintTop_toBottomOf="@+id/cube_btn" />
+            android:text="@string/square_root_btn_text"
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/cube_root_btn"
@@ -204,6 +269,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/square_root_btn"
             app:layout_constraintTop_toBottomOf="@+id/exponential_to_power_btn" />
+            android:text="@string/cube_root_btn_text"
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/nth_root_btn"
@@ -217,8 +284,180 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/cube_root_btn"
             app:layout_constraintTop_toBottomOf="@+id/ten_to_power_btn" />
+            android:text="@string/nth_root_btn_text"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/permutation_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/permutation_btn_text"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/exponential_const_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exponential_const_btn_text"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/rand_num_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rand_num_btn_text"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/two_to_power_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/two_to_power_btn_text"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="or"
+            android:theme="@style/BorderLessButton" />
 
 
+        <Button
+            android:id="@+id/xnor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xnor"
+            android:theme="@style/BorderLessButton" />
+
+
+        <Button
+            android:id="@+id/and"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="and"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/xor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xor"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/leftbracket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="("
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/rigtbracket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=")"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/decimalpoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="."
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/comma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=","
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/sininverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sin^(-1)"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/cosinverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cos^(-1)"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/taninverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tan^(-1)"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/csc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="csc^(-1)"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@id/cube_root_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="∛"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/fourthroot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="∜"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/leftcoilybrackets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/rightcoilybrackets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="}"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/permutation_btn"
             android:layout_width="wrap_content"
@@ -231,6 +470,9 @@
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/inverse_of_one_btn" />
+            android:text="@string/permutation_btn_text"
+            android:theme="@style/BorderLessButton" />
+
 
         <Button
             android:id="@+id/exponential_const_btn"
@@ -243,6 +485,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/permutation_btn"
             app:layout_constraintTop_toBottomOf="@+id/square_root_btn" />
+            android:text="@string/exponential_const_btn_text"
+            android:theme="@style/BorderLessButton" />
 
         <Button
             android:id="@+id/rand_num_btn"
@@ -284,6 +528,16 @@
             app:layout_constraintGuide_begin="15dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="@string/rand_num_btn_text"
+            android:theme="@style/BorderLessButton" />
+
+        <Button
+            android:id="@+id/two_to_power_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/two_to_power_btn_text"
+            android:theme="@style/BorderLessButton" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
