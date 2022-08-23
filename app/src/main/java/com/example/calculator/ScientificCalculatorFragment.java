@@ -129,7 +129,7 @@ public class ScientificCalculatorFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_scientific_calculator, container, false);
+        View view = inflater.inflate(R.layout.bottom, container, false);
         addListenersToButton(view);
         return view;
     }
