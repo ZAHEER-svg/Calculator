@@ -1,56 +1,391 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/design_bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000"
     android:orientation="vertical"
-    android:id="@+id/design_bottom_sheet"
-    android:background="@android:color/transparent"
-    app:layout_behavior="@string/bottom_sheet_behavior"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="40dp">
+    app:behavior_peekHeight="40dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
 
-    <androidx.cardview.widget.CardView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="#000000"
-        app:cardCornerRadius="1dp"
-        app:cardElevation="20dp"
-        >
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <LinearLayout
+        <View
+            android:layout_width="30dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="#FFA500" />
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
             android:orientation="vertical"
-            android:padding="16dp">
+            tools:context=".ScientificCalculatorFragment">
 
-            <View
-                android:layout_width="30dp"
-                android:layout_height="5dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:background="#FFA500" />
-
-            <include layout="@layout/fragment_scientific_calculator" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/sin_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/buttons2"
-                    android:gravity="center"
-                    android:text="History" />
+                    android:text="@string/sin_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/cos_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cos_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/tan_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tan_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/log_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/log_btn_text"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/sinh_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sinh_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/cosh_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cosh_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/tanh_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tanh_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/pi_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pie_btn_text"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/square_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/square_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/cube_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cube_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/exponential_to_power_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exponential_to_power_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/ten_to_power_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ten_to_power_btn_text"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/inverse_of_one_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/inverse_of_one_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/square_root_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/square_root_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/cube_root_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cube_root_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/nth_root_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nth_root_btn_text"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/permutation_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/permutation_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/exponential_const_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exponential_const_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/rand_num_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rand_num_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/two_to_power_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/two_to_power_btn_text"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/or"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="or"
+                    android:theme="@style/BorderLessButton" />
+
+
+                <Button
+                    android:id="@+id/xnor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xnor"
+                    android:theme="@style/BorderLessButton" />
+
+
+                <Button
+                    android:id="@+id/and"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="and"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/xor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xor"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/leftbracket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="("
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/rigtbracket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=")"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/decimalpoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="."
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/comma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=","
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/sininverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sin^(-1)"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/cosinverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cos^(-1)"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/taninverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tan^(-1)"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/csc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="csc^(-1)"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@id/cube_root_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="∛"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/fourthroot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="∜"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/leftcoilybrackets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="{"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/rightcoilybrackets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="}"
+                    android:theme="@style/BorderLessButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/permutation_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/permutation_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/exponential_const_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exponential_const_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/rand_num_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rand_num_btn_text"
+                    android:theme="@style/BorderLessButton" />
+
+                <Button
+                    android:id="@+id/two_to_power_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/two_to_power_btn_text"
+                    android:theme="@style/BorderLessButton" />
             </LinearLayout>
 
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/History"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/buttons2"
+                android:gravity="center"
+                android:text="History" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 </LinearLayout>

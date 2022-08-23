@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ public class ScientificCalculatorFragment extends Fragment {
         String getDisplayExpression();
         void calculateInverse(String denominator);
         void calculatePermutation(String value);
+        void getRandomNumber();
+        void calculateRoot(String nthRoot, String value);
     }
 
     private Listener listener;
@@ -27,9 +30,9 @@ public class ScientificCalculatorFragment extends Fragment {
     private Button sinBtn;
     private Button cosBtn;
     private Button tanBtn;
-    private Button sinHBtn;
-    private Button tanHBtn;
-    private Button cosHBtn;
+    private Button invSinBtn;
+    private Button invCosBtn;
+    private Button invTanBtn;
     private Button piBtn;
     private Button logBtn;
     private Button squareBtn;
@@ -59,15 +62,15 @@ public class ScientificCalculatorFragment extends Fragment {
         tanBtn.setOnClickListener(new MathFunctionClicked());
 
 
-        cosHBtn = view.findViewById(R.id.cosh_btn);
-        cosHBtn.setOnClickListener(null);
+        invCosBtn = view.findViewById(R.id.inverse_cos_btn);
+        invCosBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_cos_btn_text)));
 
 
-        sinHBtn = view.findViewById(R.id.cosh_btn);
-        sinHBtn.setOnClickListener(null);
+        invSinBtn = view.findViewById(R.id.inverse_sin_btn);
+        invSinBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_sin_btn_text)));
 
-        tanHBtn = view.findViewById(R.id.tanh_btn);
-        tanHBtn.setOnClickListener(null);
+        invTanBtn = view.findViewById(R.id.inverse_tan_btn);
+        invTanBtn.setOnClickListener(v -> listener.updateHistoryWithFunction(getString(R.string.inverse_tan_btn_text)));
 
 
         piBtn = view.findViewById(R.id.pi_btn);
@@ -97,22 +100,22 @@ public class ScientificCalculatorFragment extends Fragment {
 
 
         squareRootBtn = view.findViewById(R.id.square_root_btn);
-        squareRootBtn.setOnClickListener(null);
+        squareRootBtn.setOnClickListener(v -> listener.calculateRoot("2", listener.getDisplayExpression()));
 
 
         cubeRootBtn = view.findViewById(R.id.cube_root_btn);
-        cubeRootBtn.setOnClickListener(null);
+        cubeRootBtn.setOnClickListener(v -> listener.calculateRoot("3", listener.getDisplayExpression()));
 
 
         nthRootBtn = view.findViewById(R.id.nth_root_btn);
-        nthRootBtn.setOnClickListener(null);
+        nthRootBtn.setOnClickListener(v -> listener.updateHistory("√"));
 
         permutationBtn = view.findViewById(R.id.permutation_btn);
         permutationBtn.setOnClickListener(v -> listener.calculatePermutation(listener.getDisplayExpression()));
 
 
         randConstBtn = view.findViewById(R.id.rand_num_btn);
-        randConstBtn.setOnClickListener(null);
+        randConstBtn.setOnClickListener(v -> listener.getRandomNumber());
 
         exponentialConstBtn = view.findViewById(R.id.exponential_const_btn);
         exponentialConstBtn.setOnClickListener(v -> listener.updateHistory("e"));
@@ -134,7 +137,6 @@ public class ScientificCalculatorFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-
         listener = (Listener) context;
     }
 
