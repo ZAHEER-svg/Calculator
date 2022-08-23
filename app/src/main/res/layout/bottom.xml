@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:id="@+id/design_bottom_sheet"
     android:background="@android:color/transparent"
@@ -31,23 +32,13 @@
                 android:layout_marginBottom="10dp"
                 android:background="#FFA500" />
 
-            <include layout="@layout/fragment_scientific_calculator" />
-
-            <LinearLayout
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/calculator_basic_button"
+                android:name="com.example.calculator.ScientificCalculatorFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/buttons2"
-                    android:gravity="center"
-                    android:text="History" />
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                tools:layout="@layout/fragment_scientific_calculator" />
 
 
         </LinearLayout>

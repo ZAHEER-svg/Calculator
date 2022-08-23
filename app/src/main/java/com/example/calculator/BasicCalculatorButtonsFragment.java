@@ -109,16 +109,10 @@ public class BasicCalculatorButtonsFragment extends Fragment {
         multiply.setOnClickListener(new AppendHistory());
 
         dot = view.findViewById(R.id.dot_btn);
-        dot.setOnClickListener(new AppendHistory());
+        dot.setOnClickListener(new DisplayValue());
 
         equal = view.findViewById(R.id.equals);
-        equal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                listener.calculateToDisplay(listener.returnFinalExpression());
-            }
-        });
+        equal.setOnClickListener(v -> listener.calculateToDisplay(listener.returnFinalExpression()));
 
         caret = view.findViewById(R.id.caret);
         caret.setOnClickListener(new AppendHistory());

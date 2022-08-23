@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="fill_parent"
@@ -34,12 +36,11 @@
                     android:textColor="@color/purple_500"
                     android:textSize="20dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/display_expressions"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:hint="@string/display_hint"
-                    android:importantForAutofill="no"
                     android:inputType="number|text"
                     android:maxHeight="70dp"
                     android:paddingStart="30dp"
@@ -49,8 +50,8 @@
                     android:textColor="@color/purple_500"
                     android:textColorHighlight="#FFA500"
                     android:textColorLink="#FFA500"
-                    android:textSize="70sp"
-                    app:autoSizeTextType="uniform" />
+                    android:textSize="45sp"
+                    android:scrollbars="horizontal"/>
             </LinearLayout>
 
 
@@ -62,9 +63,16 @@
                 android:layout_weight="2"
                 tools:layout="@layout/fragment_basic_calculator_buttons" />
 
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/calculator_scientific_button"
+                android:name="com.example.calculator.ScientificCalculatorFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                tools:layout="@layout/fragment_scientific_calculator" />
+
 
         </LinearLayout>
-
-
-    <include layout="@layout/bottom" />
+    </androidx.core.widget.NestedScrollView>
+<!--    <include layout="@layout/bottom" />-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
