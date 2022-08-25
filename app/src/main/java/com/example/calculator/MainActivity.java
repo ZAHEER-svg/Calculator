@@ -1,7 +1,6 @@
 package com.example.calculator;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.TextView;
@@ -46,10 +45,10 @@ public class MainActivity extends AppCompatActivity
 
 
     public void updateText(String value){
-        Editable oldStr = (Editable) display_expression.getText();
+        StringBuilder oldStr =  new StringBuilder(display_expression.getText().toString());
 
         if(oldStr.toString().contains(BAD_EXPRESSION_MSG)){
-            oldStr.clear();
+           clearText();
         }
 
         oldStr.append(value);
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity
 
     public void updateHistory(String operator){
         String history_text = (String) history.getText();
-        Editable display_text = (Editable) display_expression.getText();
+        String display_text =  display_expression.getText().toString();
 
         String newStr = String.format("%s%s%s", history_text, display_text,operator);
 
@@ -81,7 +80,7 @@ public class MainActivity extends AppCompatActivity
 
 
     public void updateHistoryWithFunction(String type){
-        Editable display_text = (Editable) display_expression.getText();
+        String display_text =  display_expression.getText().toString();
         history.setText(String.format("%s(%s)", type, display_text));
         clearText();
     }
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity
 
 
     public void backSpace() {
-        Editable str = (Editable) display_expression.getText();
+        String str =  display_expression.getText().toString();
         if (str.length() != 0) display_expression.setText(str.subSequence(0, str.length() -1));
     }
 
