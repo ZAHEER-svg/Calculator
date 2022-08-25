@@ -37,7 +37,7 @@
         android:textAlignment="textEnd"
         android:textColor="@color/purple_500"
         android:textColorHighlight="#FFA500"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/purple_500"
         android:textColorLink="#FFA500"
         app:autoSizeMaxTextSize="100sp"
         app:autoSizeMinTextSize="50sp"
@@ -59,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/display_expressions"
-        app:layout_constraintVertical_bias="0.81"
+        app:layout_constraintVertical_bias="1.0"
         tools:layout="@layout/fragment_basic_calculator_buttons" />
 
     <androidx.constraintlayout.widget.Guideline
