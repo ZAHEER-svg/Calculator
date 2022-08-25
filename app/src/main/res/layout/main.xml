@@ -1,82 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_constraint"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/darkGray">
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="#000000"
-            android:baselineAligned="false"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/history"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="2dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="30dp"
+        android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/purple_500"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_bottom2" />
 
+    <TextView
+        android:id="@+id/display_expressions"
+        android:layout_width="0dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/display_hint"
+        android:maxHeight="70dp"
+        android:maxLines="1"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:textAlignment="textEnd"
+        android:textColor="@color/purple_500"
+        android:textColorHighlight="#FFA500"
+        android:textColorHint="@color/white"
+        android:textColorLink="#FFA500"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="50sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/history"
+        tools:ignore="TextViewEdits" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/calculator_basic_button"
+        android:name="com.example.calculator.BasicCalculatorButtonsFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/display_expressions"
+        app:layout_constraintVertical_bias="0.81"
+        tools:layout="@layout/fragment_basic_calculator_buttons" />
 
-                <TextView
-                    android:id="@+id/history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="2dp"
-                    android:paddingRight="30dp"
-                    android:textAlignment="textEnd"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:textColor="@color/purple_500"
-                    android:textSize="20dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="8dp" />
 
-                <TextView
-                    android:id="@+id/display_expressions"
-                    android:layout_width="match_parent"
-                    android:layout_height="200sp"
-                    android:hint="@string/display_hint"
-                    android:maxHeight="70dp"
-                    android:maxLines="1"
-                    android:paddingStart="30dp"
-                    android:paddingEnd="30dp"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/purple_500"
-                    android:textColorHighlight="#FFA500"
-                    android:textColorHint="@color/white"
-                    android:textColorLink="#FFA500"
-                    app:autoSizeMaxTextSize="100sp"
-                    app:autoSizeMinTextSize="50sp"
-                    app:autoSizePresetSizes="@array/autosize_text_sizes"
-                    app:autoSizeTextType="uniform"
-                    tools:ignore="TextViewEdits" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="8dp" />
 
-            </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="7dp" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="8dp" />
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/calculator_basic_button"
-                android:name="com.example.calculator.BasicCalculatorButtonsFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                tools:layout="@layout/fragment_basic_calculator_buttons" />
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="history,display_expressions" />
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/calculator_scientific_button"
-                android:name="com.example.calculator.ScientificCalculatorFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                tools:layout="@layout/fragment_basic_calculator_buttons" />
-
-
-
-
-        </LinearLayout>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
