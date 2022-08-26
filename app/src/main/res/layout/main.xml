@@ -40,7 +40,7 @@
             android:textColorHint="@color/purple_500"
             android:textColorLink="#FFA500"
             app:autoSizeMaxTextSize="100sp"
-            app:autoSizeMinTextSize="50sp"
+            app:autoSizeMinTextSize="7sp"
             app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintHorizontal_bias="1.0"

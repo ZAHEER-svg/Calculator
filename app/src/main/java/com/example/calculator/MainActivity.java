@@ -1,11 +1,10 @@
 package com.example.calculator;
 
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.TextView;
 
-
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +16,9 @@ public class MainActivity extends AppCompatActivity
     private TextView display_expression;
     private TextView history;
     private final String BAD_EXPRESSION_MSG = "Bad Expression";
+    private final String HISTORY_TEXT_KEY = "historyText";
+    private final String DISPLAY_TEXT_KEY = "displayExpression";
+
 
 
     public void disableKeyBoardSystem (){
@@ -31,8 +33,16 @@ public class MainActivity extends AppCompatActivity
 
         history = findViewById(R.id.history);
         display_expression = findViewById(R.id.display_expressions);
-//        display_expression.setMovementMethod(new ScrollingMovementMethod());
         disableKeyBoardSystem();
+
+        if(savedInstanceState != null){
+            String historyText = savedInstanceState.getString(HISTORY_TEXT_KEY);
+            String displayExpress = savedInstanceState.getString(DISPLAY_TEXT_KEY);
+
+            history.setText(historyText);
+            display_expression.setText(displayExpress);
+        }
+
     }
 
 
@@ -80,8 +90,9 @@ public class MainActivity extends AppCompatActivity
 
 
     public void updateHistoryWithFunction(String type){
+        String oldHistoryText = history.getText().toString();
         String display_text =  display_expression.getText().toString();
-        history.setText(String.format("%s(%s)", type, display_text));
+        history.setText(String.format("%s%s(%s)", oldHistoryText, type, display_text));
         clearText();
     }
 
@@ -184,7 +195,17 @@ public class MainActivity extends AppCompatActivity
 
         clearText();
 
-        updateHistory(result);
+        updateHistory(String.format("(%s)", result));
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String historyText = history.getText().toString();
+        String expressionText = display_expression.getText().toString();
+
+        outState.putString(HISTORY_TEXT_KEY, historyText);
+        outState.putString(DISPLAY_TEXT_KEY, expressionText);
     }
 }
 
