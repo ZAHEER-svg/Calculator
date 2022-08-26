@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#C0C0C0"/>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false" android:drawable="@drawable/buttons_normal"/>
+    <item android:state_pressed="true" android:drawable="@drawable/buttons_pressed"/>
 
-            <corners
-                android:topLeftRadius="250dp"
-                android:topRightRadius="250dp"
-                android:bottomRightRadius="250dp"
-                android:bottomLeftRadius="250dp"/>
-        </shape>
-    </item>
 </selector>
