@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height">40dp</dimen>
+    <dimen name="button_width">40dp</dimen>
+    <dimen name="button_testSize">12sp</dimen>
+    <dimen name="scientific_button_size">11sp</dimen>
+</resources>
