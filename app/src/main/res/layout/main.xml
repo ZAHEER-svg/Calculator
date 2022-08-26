@@ -48,20 +48,40 @@
             app:layout_constraintTop_toBottomOf="@+id/history"
             tools:ignore="TextViewEdits" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/calculator_basic_button"
-            android:name="com.example.calculator.BasicCalculatorButtonsFragment"
+       <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            android:id="@+id/sliding_layout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="500dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
+            android:gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/display_expressions"
             app:layout_constraintVertical_bias="1.0"
-            tools:layout="@layout/fragment_basic_calculator_buttons" />
+            app:umanoPanelHeight="40dp"
+            app:umanoFadeColor="@android:color/transparent"
+            app:umanoShadowHeight="0dp">
 
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/calculator_basic_button"
+                    android:name="com.example.calculator.BasicCalculatorButtonsFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    tools:layout="@layout/fragment_basic_calculator_buttons" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/calculator_scientific_button"
+                    android:name="com.example.calculator.ScientificCalculatorFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    tools:layout="@layout/bottom" />
+
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_bottom"
             android:layout_width="wrap_content"
