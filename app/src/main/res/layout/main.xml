@@ -48,19 +48,19 @@
             app:layout_constraintTop_toBottomOf="@+id/history"
             tools:ignore="TextViewEdits" />
 
-       <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
             android:id="@+id/sliding_layout"
             android:layout_width="0dp"
-            android:layout_height="500dp"
+            android:layout_height="495dp"
             android:layout_marginTop="16dp"
             android:gravity="bottom"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/display_expressions"
             app:layout_constraintVertical_bias="1.0"
-            app:umanoPanelHeight="40dp"
             app:umanoFadeColor="@android:color/transparent"
+            app:umanoPanelHeight="50dp"
             app:umanoShadowHeight="0dp">
 
 
