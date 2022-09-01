@@ -1,7 +1,11 @@
 package com.example.calculator;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,13 +16,14 @@ import org.mariuszgromada.math.mxparser.Expression;
 
 public class MainActivity extends AppCompatActivity
         implements  BasicCalculatorButtonsFragment.Listener, ScientificCalculatorFragment.Listener {
+    Button History;
 
     private TextView display_expression;
     private TextView history;
     private final String BAD_EXPRESSION_MSG = "Bad Expression";
     private final String HISTORY_TEXT_KEY = "historyText";
     private final String DISPLAY_TEXT_KEY = "displayExpression";
-
+    private Activity view;
 
 
     public void disableKeyBoardSystem (){
@@ -43,6 +48,19 @@ public class MainActivity extends AppCompatActivity
             display_expression.setText(displayExpress);
         }
 
+
+
+    }
+
+    private void startActivityFromFragment(Intent intent) {
+
+        History = findViewById(R.id.History);
+        History.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityFromFragment(new Intent(MainActivity .this , History.class));
+            }
+        });
     }
 
 
@@ -65,6 +83,7 @@ public class MainActivity extends AppCompatActivity
 
         display_expression.setText(oldStr);
     }
+
 
 
     public void updateHistory(String operator){

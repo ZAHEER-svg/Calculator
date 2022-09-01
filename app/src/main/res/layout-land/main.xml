@@ -5,12 +5,12 @@
     android:id="@+id/root_constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkGray">
+    android:background="@color/darkblue">
 
 
     <TextView
         android:id="@+id/history"
-        android:layout_width="0dp"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
         android:paddingVertical="2dp"
         android:paddingStart="10dp"
@@ -20,13 +20,11 @@
         android:textColor="@color/purple_500"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="@+id/guideline_bottom2" />
 
     <TextView
         android:id="@+id/display_expressions"
-        android:layout_width="0dp"
+        android:layout_width="267dp"
         android:layout_height="35dp"
         android:layout_marginTop="4dp"
         android:hint="@string/display_hint"
@@ -43,8 +41,6 @@
         app:autoSizeMinTextSize="7sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/history"
         tools:ignore="TextViewEdits" />
 

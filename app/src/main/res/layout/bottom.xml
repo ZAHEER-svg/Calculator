@@ -5,9 +5,8 @@
     android:id="@+id/design_bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/darkGray_800"
-   >
+    android:background="#334257"
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -21,8 +20,8 @@
             android:layout_height="5dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:elevation="5dp"
-            android:background="@color/darkGray_300" />
+            android:background="@color/darkGray_300"
+            android:elevation="5dp" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

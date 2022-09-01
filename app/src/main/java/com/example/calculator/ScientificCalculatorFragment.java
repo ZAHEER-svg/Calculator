@@ -1,6 +1,7 @@
 package com.example.calculator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.widget.Button;
 
 public class ScientificCalculatorFragment extends Fragment {
 
+
     public interface Listener{
         void updateHistoryWithFunction(String type);
         void updateHistory(String operator);
@@ -26,7 +28,6 @@ public class ScientificCalculatorFragment extends Fragment {
     }
 
     private Listener listener;
-
     private Button sinBtn;
     private Button cosBtn;
     private Button tanBtn;
@@ -51,6 +52,7 @@ public class ScientificCalculatorFragment extends Fragment {
 
 
     public void addListenersToButton(@NonNull View view){
+
         sinBtn = view.findViewById(R.id.sin_btn);
         sinBtn.setOnClickListener(new MathFunctionClicked());
 
@@ -132,7 +134,9 @@ public class ScientificCalculatorFragment extends Fragment {
         View view = inflater.inflate(R.layout.bottom, container, false);
         addListenersToButton(view);
         return view;
+
     }
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -148,4 +152,5 @@ public class ScientificCalculatorFragment extends Fragment {
             listener.updateHistoryWithFunction((String) button.getText());
         }
     }
+
 }
