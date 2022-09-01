@@ -5,9 +5,8 @@
     android:id="@+id/design_bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/darkGray_800"
-   >
+    android:background="#334257"
+    android:orientation="vertical">
 
 
     <LinearLayout

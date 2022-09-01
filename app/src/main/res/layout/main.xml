@@ -5,25 +5,26 @@
         android:id="@+id/root_constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/darkGray">
+        android:background="@color/darkblue">
 
 
         <TextView
             android:id="@+id/history"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:maxHeight="50dp"
+            android:maxLines="1"
             android:paddingVertical="2dp"
             android:paddingStart="10dp"
             android:paddingEnd="30dp"
-            android:maxLines="1"
-            app:autoSizeMaxTextSize="40sp"
-            app:autoSizeMinTextSize="4sp"
-            app:autoSizeTextType="uniform"
             android:textAlignment="textEnd"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@color/purple_500"
             android:textSize="40sp"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="4sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
@@ -33,8 +34,7 @@
             android:id="@+id/display_expressions"
             android:layout_width="0dp"
             android:layout_height="86dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/display_hint"
+
             android:maxHeight="70dp"
             android:maxLines="1"
             android:paddingStart="30dp"
@@ -48,7 +48,7 @@
             app:autoSizeMinTextSize="7sp"
             app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/history"
             tools:ignore="TextViewEdits" />
@@ -57,7 +57,6 @@
             android:id="@+id/sliding_layout"
             android:layout_width="0dp"
             android:layout_height="495dp"
-            android:layout_marginTop="16dp"
             android:gravity="bottom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
