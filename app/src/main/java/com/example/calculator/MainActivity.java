@@ -2,13 +2,22 @@ package com.example.calculator;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.mariuszgromada.math.mxparser.Expression;
+import org.mariuszgromada.math.mxparser.mXparser;
+
+
+enum CalculatorMode{
+    RadianMode,
+    DegreeMode
+}
 
 public class MainActivity extends AppCompatActivity
         implements  BasicCalculatorButtonsFragment.Listener, ScientificCalculatorFragment.Listener {
@@ -18,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     private final String BAD_EXPRESSION_MSG = "Bad Expression";
     private final String HISTORY_TEXT_KEY = "historyText";
     private final String DISPLAY_TEXT_KEY = "displayExpression";
+    private CalculatorMode currentCalculatorMode;
 
 
 
@@ -30,6 +40,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        setDegreeMode();
+
 
         history = findViewById(R.id.history);
         display_expression = findViewById(R.id.display_expressions);
@@ -44,6 +56,22 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
+    public void toggleCalculatorMode(){
+        if (currentCalculatorMode == CalculatorMode.RadianMode) setDegreeMode();
+        else setRadianMode();
+    }
+
+    private void setDegreeMode(){
+        mXparser.setDegreesMode();
+        currentCalculatorMode = CalculatorMode.DegreeMode;
+    }
+
+    private void setRadianMode(){
+        mXparser.setRadiansMode();
+        currentCalculatorMode = CalculatorMode.RadianMode;
+    }
+
 
 
     public void calculatePercentage(){

@@ -2,15 +2,14 @@ package com.example.calculator;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 public class ScientificCalculatorFragment extends Fragment {
 
@@ -23,34 +22,34 @@ public class ScientificCalculatorFragment extends Fragment {
         void calculatePermutation(String value);
         void getRandomNumber();
         void calculateRoot(String nthRoot, String value);
+        void toggleCalculatorMode();
     }
 
     private Listener listener;
 
-    private Button sinBtn;
-    private Button cosBtn;
-    private Button tanBtn;
-    private Button invSinBtn;
-    private Button invCosBtn;
-    private Button invTanBtn;
-    private Button piBtn;
-    private Button logBtn;
-    private Button squareBtn;
-    private Button cubeBtn;
-    private Button exponentialToPowerBtn;
-    private Button tenToPowerBtn;
-    private Button inverseOfOneBtn;
-    private Button squareRootBtn;
-    private Button cubeRootBtn;
-    private Button nthRootBtn;
-    private Button permutationBtn;
-    private Button exponentialConstBtn;
-    private Button randConstBtn;
-    private Button twoToPowerBtn;
-
-
 
     public void addListenersToButton(@NonNull View view){
+        Button sinBtn;
+        Button cosBtn;
+        Button tanBtn;
+        Button invSinBtn;
+        Button invCosBtn;
+        Button invTanBtn;
+        Button piBtn;
+        Button logBtn;
+        Button squareBtn;
+        Button cubeBtn;
+        Button exponentialToPowerBtn;
+        Button tenToPowerBtn;
+        Button inverseOfOneBtn;
+        Button squareRootBtn;
+        Button cubeRootBtn;
+        Button nthRootBtn;
+        Button permutationBtn;
+        Button exponentialConstBtn;
+        Button randConstBtn;
+        Button twoToPowerBtn;
+
         sinBtn = view.findViewById(R.id.sin_btn);
         sinBtn.setOnClickListener(new MathFunctionClicked());
 
@@ -122,6 +121,9 @@ public class ScientificCalculatorFragment extends Fragment {
 
         twoToPowerBtn = view.findViewById(R.id.two_to_power_btn);
         twoToPowerBtn.setOnClickListener(v -> listener.calculatePower(listener.getDisplayExpression(), "2"));
+
+        ToggleButton modeToggle = view.findViewById(R.id.mode_toggle_btn);
+        modeToggle.setOnCheckedChangeListener((buttonView, isChecked) -> listener.toggleCalculatorMode());
     }
 
     @Override
@@ -141,7 +143,6 @@ public class ScientificCalculatorFragment extends Fragment {
     }
 
     public class MathFunctionClicked implements View.OnClickListener{
-
         @Override
         public void onClick(View v) {
             Button button = (Button) v;

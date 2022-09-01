@@ -42,4 +42,7 @@
     <string name="inverse_sin_btn_text">sin<small><sup>-1</sup></small></string>
     <string name="inverse_cos_btn_text">cos<small><sup>-1</sup></small></string>
     <string name="inverse_tan_btn_text">tan<small><sup>-1</sup></small></string>
+    <string name="mode_btn_toggle_rad">Rad</string>
+    <string name="mode_btn_toggle_deg">Deg</string>
+
 </resources>
