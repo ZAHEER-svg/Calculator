@@ -22,10 +22,10 @@
             android:layout_height="25dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:background="@color/darkGray_300"
+            android:background="@drawable/buttons2"
             android:elevation="5dp"
-            android:textOff="@string/mode_btn_toggle_rad"
-            android:textOn="@string/mode_btn_toggle_deg"
+            android:textOff="@string/mode_btn_toggle_deg"
+            android:textOn="@string/mode_btn_toggle_rad"
             android:textSize="@dimen/scientific_button_size" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
