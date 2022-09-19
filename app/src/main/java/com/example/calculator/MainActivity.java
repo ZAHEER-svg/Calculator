@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     private final String BAD_EXPRESSION_MSG = "Bad Expression";
     private final String HISTORY_TEXT_KEY = "historyText";
     private final String DISPLAY_TEXT_KEY = "displayExpression";
+    private boolean expression_calculated;
     private CalculatorMode currentCalculatorMode;
 
     private Activity view;
@@ -83,8 +83,6 @@ public class MainActivity extends AppCompatActivity
         currentCalculatorMode = CalculatorMode.RadianMode;
     }
 
-
-
     public void calculatePercentage(){
         String display_text =  display_expression.getText().toString();
         Expression expression = new Expression(display_text + "%");
@@ -92,24 +90,32 @@ public class MainActivity extends AppCompatActivity
         display_expression.setText(result);
     }
 
+    public void clearBadExpressionText(@NonNull String text){
+        if(text.contains(BAD_EXPRESSION_MSG)){
+            clearText();
+        }
+    }
 
     public void updateText(String value){
+        if(isExpression_calculated()) clearText();
+
         StringBuilder oldStr =  new StringBuilder(display_expression.getText().toString());
 
-        if(oldStr.toString().contains(BAD_EXPRESSION_MSG)){
-           clearText();
-        }
+        clearBadExpressionText(oldStr.toString());
 
         oldStr.append(value);
 
         display_expression.setText(oldStr);
+        setExpression_calculated(false);
     }
-
-
 
     public void updateHistory(String operator){
         String history_text = (String) history.getText();
         String display_text =  display_expression.getText().toString();
+
+        if(display_text.contains(BAD_EXPRESSION_MSG)){
+            display_text = "";
+        }
 
         String newStr = String.format("%s%s%s", history_text, display_text,operator);
 
@@ -117,12 +123,10 @@ public class MainActivity extends AppCompatActivity
         clearText();
     }
 
-
     public void calculatePower(String power, String base){
         String expression_string = String.format("%s^%s", base, power);
         calculateToHistory(expression_string);
     }
-
 
     public String getDisplayExpression() {
         return display_expression.getText().toString();
@@ -136,22 +140,24 @@ public class MainActivity extends AppCompatActivity
         clearText();
     }
 
-
     public void clearText(){
         display_expression.setText("");
     }
-
 
     public void clearHistory(){
         history.setText("");
     }
 
-
     public void backSpace() {
         String str =  display_expression.getText().toString();
+
+        if(str.contains(BAD_EXPRESSION_MSG)){
+            clearText();
+            return;
+        }
+
         if (str.length() != 0) display_expression.setText(str.subSequence(0, str.length() -1));
     }
-
 
     public String backSpaceHistoryText(){
         String history_expression = (String) history.getText();
@@ -160,18 +166,15 @@ public class MainActivity extends AppCompatActivity
         return  history_expression;
     }
 
-
     public void calculateInverse(String denominator){
         String expression_string = String.format("1 / %s", denominator);
         calculateToHistory(expression_string);
     }
 
-
     public void calculatePermutation(String value){
         String expression_string = String.format("%s!", value);
         calculateToHistory(expression_string);
     }
-
 
     public void getRandomNumber() {
         clearText();
@@ -181,7 +184,6 @@ public class MainActivity extends AppCompatActivity
 
         display_expression.setText(String.valueOf(randNum));
     }
-
 
     public String returnFinalExpression(){
         String history_expression = ((String) history.getText())
@@ -209,7 +211,6 @@ public class MainActivity extends AppCompatActivity
         calculateToHistory(expression_string);
     }
 
-
     public String calculateExpression(String expression_string){
         Expression expression = new Expression(expression_string);
         String result = String.valueOf(expression.calculate());
@@ -218,9 +219,9 @@ public class MainActivity extends AppCompatActivity
 
         if(result.equals("NaN")) result = BAD_EXPRESSION_MSG;
 
+        setExpression_calculated(true);
         return result;
     }
-
 
     public void calculateToDisplay(String expression_string){
         String result = calculateExpression(expression_string);
@@ -228,7 +229,6 @@ public class MainActivity extends AppCompatActivity
         clearHistory();
         display_expression.setText(result);
     }
-
 
     public void calculateToHistory(String expression_string){
         String result = calculateExpression(expression_string);
@@ -246,6 +246,14 @@ public class MainActivity extends AppCompatActivity
 
         outState.putString(HISTORY_TEXT_KEY, historyText);
         outState.putString(DISPLAY_TEXT_KEY, expressionText);
+    }
+
+    public boolean isExpression_calculated() {
+        return expression_calculated;
+    }
+
+    public void setExpression_calculated(boolean expression_calculated) {
+        this.expression_calculated = expression_calculated;
     }
 }
 

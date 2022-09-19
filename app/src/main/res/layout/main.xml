@@ -12,7 +12,6 @@
             android:id="@+id/history"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:maxHeight="50dp"
             android:maxLines="1"
             android:paddingVertical="2dp"
@@ -35,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="86dp"
 
-            android:maxHeight="70dp"
+            android:maxHeight="67dp"
             android:maxLines="1"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
@@ -44,7 +43,7 @@
             android:textColorHighlight="#FFA500"
             android:textColorHint="@color/purple_500"
             android:textColorLink="#FFA500"
-            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMaxTextSize="90sp"
             app:autoSizeMinTextSize="7sp"
             app:autoSizeTextType="uniform"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
@@ -56,7 +55,7 @@
         <com.sothree.slidinguppanel.SlidingUpPanelLayout
             android:id="@+id/sliding_layout"
             android:layout_width="0dp"
-            android:layout_height="495dp"
+            android:layout_height="490dp"
             android:gravity="bottom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@+id/display_expressions"
             app:layout_constraintVertical_bias="1.0"
             app:umanoFadeColor="@android:color/transparent"
-            app:umanoPanelHeight="50dp"
+            app:umanoPanelHeight="45dp"
             app:umanoShadowHeight="0dp">
 
 

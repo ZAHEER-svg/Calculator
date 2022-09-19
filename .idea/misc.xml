@@ -28,10 +28,10 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1815" />
         <entry key="app/src/main/res/drawable/o.xml" value="0.1815" />
         <entry key="app/src/main/res/drawable/scientific.xml" value="0.1815" />
-        <entry key="app/src/main/res/layout-land/bottom.xml" value="0.1597222222222222" />
+        <entry key="app/src/main/res/layout-land/bottom.xml" value="0.16" />
         <entry key="app/src/main/res/layout-land/fragment_basic_calculator_buttons.xml" value="0.175" />
-        <entry key="app/src/main/res/layout-land/main.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/bottom.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout-land/main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/bottom.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_basic_calculator_buttons.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_scientific_calculator.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main.xml" value="0.1721311475409836" />

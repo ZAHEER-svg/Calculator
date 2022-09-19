@@ -5,7 +5,7 @@
     android:id="@+id/design_bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#334257"
+    android:background="@color/darkblue"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,12 +20,11 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="center"
-            android:background="@color/darkGray_300"
             android:elevation="5dp"
             android:textOff="@string/mode_btn_toggle_rad"
             android:textOn="@string/mode_btn_toggle_deg"
             android:textSize="@dimen/scientific_button_size"
-
+            android:background="@drawable/buttons2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.499"
             app:layout_constraintStart_toStartOf="parent"
